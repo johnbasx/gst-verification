@@ -1,0 +1,325 @@
+# Comprehensive CI/CD Pipeline for GST Verification API
+name: Build, Test, and Deploy GST Verification API
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  PYTHON_VERSION: '3.9'
+  NODE_VERSION: '18'
+
+jobs:
+  # Code Quality and Security Checks
+  code-quality:
+    runs-on: ubuntu-latest
+    name: Code Quality & Security
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        
+    - name: Cache pip dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+          
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install bandit safety
+        
+    - name: Run code formatting check (Black)
+      run: |
+        black --check --diff .
+        
+    - name: Run linting (Flake8)
+      run: |
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        
+    - name: Run security checks (Bandit)
+      run: |
+        bandit -r . -f json -o bandit-report.json || true
+        bandit -r . --severity-level medium
+        
+    - name: Check for known security vulnerabilities (Safety)
+      run: |
+        safety check --json --output safety-report.json || true
+        safety check
+        
+    - name: Upload security reports
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: security-reports
+        path: |
+          bandit-report.json
+          safety-report.json
+
+  # Comprehensive Testing
+  test:
+    runs-on: ubuntu-latest
+    name: Run Tests
+    strategy:
+      matrix:
+        python-version: ['3.8', '3.9', '3.10', '3.11']
+        
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+        
+    - name: Cache pip dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ matrix.python-version }}-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-${{ matrix.python-version }}-
+          ${{ runner.os }}-pip-
+          
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
+    - name: Run unit tests with coverage
+      run: |
+        pytest --cov=app --cov-report=xml --cov-report=html --junitxml=pytest-results.xml
+        
+    - name: Upload test results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-results-${{ matrix.python-version }}
+        path: |
+          pytest-results.xml
+          htmlcov/
+          
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      if: matrix.python-version == '3.9'
+      with:
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-umbrella
+        fail_ci_if_error: false
+
+  # Integration Tests
+  integration-test:
+    runs-on: ubuntu-latest
+    name: Integration Tests
+    needs: [code-quality, test]
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
+    - name: Start application
+      run: |
+        python app.py &
+        sleep 10
+        
+    - name: Run health check
+      run: |
+        curl -f http://localhost:5001/api/v1/health || exit 1
+        
+    - name: Run API integration tests
+      run: |
+        python -c "
+        import requests
+        import json
+        
+        # Test health endpoint
+        response = requests.get('http://localhost:5001/api/v1/health')
+        assert response.status_code == 200
+        
+        # Test GSTIN validation
+        response = requests.post(
+            'http://localhost:5001/api/v1/validateGSTIN',
+            json={'gstin': '01ABCDE0123F1Z5'},
+            headers={'Content-Type': 'application/json'}
+        )
+        assert response.status_code == 200
+        data = response.json()
+        assert data['success'] == True
+        assert data['data']['is_valid'] == True
+        
+        print('Integration tests passed!')
+        "
+
+  # Docker Build and Test
+  docker-test:
+    runs-on: ubuntu-latest
+    name: Docker Build & Test
+    needs: [code-quality, test]
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+      
+    - name: Build Docker image
+      run: |
+        docker build -t gst-verification-api:test .
+        
+    - name: Test Docker image
+      run: |
+        # Run container in background
+        docker run -d --name gst-api-test -p 5001:5001 gst-verification-api:test
+        
+        # Wait for container to start
+        sleep 15
+        
+        # Test health endpoint
+        curl -f http://localhost:5001/api/v1/health || exit 1
+        
+        # Stop and remove container
+        docker stop gst-api-test
+        docker rm gst-api-test
+        
+    - name: Save Docker image
+      if: github.ref == 'refs/heads/main'
+      run: |
+        docker save gst-verification-api:test | gzip > gst-api-image.tar.gz
+        
+    - name: Upload Docker image artifact
+      if: github.ref == 'refs/heads/main'
+      uses: actions/upload-artifact@v4
+      with:
+        name: docker-image
+        path: gst-api-image.tar.gz
+        retention-days: 1
+
+  # Build for Deployment
+  build:
+    runs-on: ubuntu-latest
+    name: Build Application
+    needs: [code-quality, test, integration-test, docker-test]
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        
+    - name: Create and start virtual environment
+      run: |
+        python -m venv venv
+        source venv/bin/activate
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
+    - name: Create deployment package
+      run: |
+        # Remove development files
+        rm -rf .git .github tests __pycache__ *.pyc .pytest_cache htmlcov
+        rm -f .env.example docker-compose.yml Dockerfile pytest.ini
+        
+        # Create deployment zip
+        zip -r release.zip . -x "venv/*" "*.git*" "tests/*" "__pycache__/*" "*.pyc"
+        
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: python-app
+        path: release.zip
+        retention-days: 30
+
+  # Deploy to Azure (Production)
+  deploy-azure:
+    runs-on: ubuntu-latest
+    name: Deploy to Azure
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    environment:
+      name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    permissions:
+      id-token: write
+      
+    steps:
+    - name: Download build artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: python-app
+        
+    - name: Unzip deployment package
+      run: unzip release.zip
+      
+    - name: Login to Azure
+      uses: azure/login@v2
+      with:
+        client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_C2936D7154704FB5BFDF4B3B9360BBC2 }}
+        tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_7B0A07F9AD2B4FD1937175355796A650 }}
+        subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_F811BBF1C27E4A1D9A38900F409657F9 }}
+        
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v3
+      id: deploy-to-webapp
+      with:
+        app-name: 'verifyde-gst'
+        slot-name: 'Production'
+        
+    - name: Post-deployment health check
+      run: |
+        sleep 30
+        curl -f ${{ steps.deploy-to-webapp.outputs.webapp-url }}/api/v1/health || exit 1
+        
+  # Notification
+  notify:
+    runs-on: ubuntu-latest
+    name: Notify Deployment Status
+    needs: [deploy-azure]
+    if: always() && github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Notify success
+      if: needs.deploy-azure.result == 'success'
+      run: |
+        echo "✅ Deployment successful!"
+        echo "🚀 GST Verification API is now live"
+        
+    - name: Notify failure
+      if: needs.deploy-azure.result == 'failure'
+      run: |
+        echo "❌ Deployment failed!"
+        echo "🔧 Please check the logs and fix the issues"
+        exit 1
+          
