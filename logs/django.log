@@ -1,0 +1,1791 @@
+INFO 2025-08-12 12:41:38,923 autoreload 58730 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 12:41:56,868 basehttp 58730 123145348038656 "GET /admin/?ide_webview_request_time=1755002516753 HTTP/1.1" 302 0
+INFO 2025-08-12 12:41:56,919 basehttp 58730 123145348038656 "GET /admin/login/?next=/admin/%3Fide_webview_request_time%3D1755002516753 HTTP/1.1" 200 4260
+INFO 2025-08-12 12:41:57,094 basehttp 58730 123145364828160 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+INFO 2025-08-12 12:41:57,095 basehttp 58730 123145381617664 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+INFO 2025-08-12 12:41:57,096 basehttp 58730 123145398407168 "GET /static/admin/css/login.css HTTP/1.1" 200 958
+INFO 2025-08-12 12:41:57,097 basehttp 58730 123145431986176 "GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+INFO 2025-08-12 12:41:57,097 basehttp 58730 123145348038656 "GET /static/admin/css/base.css HTTP/1.1" 200 21207
+INFO 2025-08-12 12:41:57,098 basehttp 58730 123145415196672 "GET /static/admin/css/responsive.css HTTP/1.1" 200 18533
+INFO 2025-08-12 12:41:57,100 basehttp 58730 123145381617664 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+WARNING 2025-08-12 12:41:57,461 log 58730 123145381617664 Not Found: /@vite/client
+WARNING 2025-08-12 12:41:57,461 basehttp 58730 123145381617664 "GET /@vite/client HTTP/1.1" 404 2115
+INFO 2025-08-12 12:42:11,026 basehttp 58730 123145448775680 "GET / HTTP/1.1" 200 10664
+WARNING 2025-08-12 12:42:12,647 log 58730 123145448775680 Not Found: /favicon.ico
+WARNING 2025-08-12 12:42:12,648 basehttp 58730 123145448775680 "GET /favicon.ico HTTP/1.1" 404 2112
+INFO 2025-08-12 12:42:16,202 basehttp 58730 123145448775680 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-08-12 12:42:16,215 basehttp 58730 123145448775680 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4178
+INFO 2025-08-12 12:42:16,313 basehttp 58730 123145448775680 "GET /static/admin/css/base.css HTTP/1.1" 200 21207
+INFO 2025-08-12 12:42:16,315 basehttp 58730 123145465565184 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+INFO 2025-08-12 12:42:16,317 basehttp 58730 123145482354688 "GET /static/admin/css/login.css HTTP/1.1" 200 958
+INFO 2025-08-12 12:42:16,317 basehttp 58730 123145499144192 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+INFO 2025-08-12 12:42:16,321 basehttp 58730 123145515933696 "GET /static/admin/css/responsive.css HTTP/1.1" 200 18533
+INFO 2025-08-12 12:42:16,402 basehttp 58730 123145515933696 "GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+INFO 2025-08-12 12:42:16,427 basehttp 58730 123145532723200 "GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+INFO 2025-08-12 12:42:16,451 basehttp 58730 123145515933696 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2025-08-12 12:42:16,492 basehttp 58730 123145532723200 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2025-08-12 12:42:21,207 basehttp 58730 123145515933696 "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4345
+INFO 2025-08-12 12:42:33,984 basehttp 58730 123145515933696 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-08-12 12:42:34,047 basehttp 58730 123145515933696 "GET /admin/ HTTP/1.1" 200 19571
+INFO 2025-08-12 12:42:34,106 basehttp 58730 123145515933696 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2025-08-12 12:42:34,241 basehttp 58730 123145515933696 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2025-08-12 12:42:34,252 basehttp 58730 123145499144192 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2025-08-12 12:42:47,948 basehttp 58730 123145499144192 "GET /admin/billing/invoice/ HTTP/1.1" 200 20690
+INFO 2025-08-12 12:42:48,001 basehttp 58730 123145499144192 "GET /static/admin/css/changelists.css HTTP/1.1" 200 6566
+INFO 2025-08-12 12:42:48,046 basehttp 58730 123145448775680 "GET /static/admin/js/core.js HTTP/1.1" 200 5682
+INFO 2025-08-12 12:42:48,048 basehttp 58730 123145549512704 "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 8943
+INFO 2025-08-12 12:42:48,049 basehttp 58730 123145482354688 "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2025-08-12 12:42:48,065 basehttp 58730 123145515933696 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-08-12 12:42:48,066 basehttp 58730 123145448775680 "GET /static/admin/js/actions.js HTTP/1.1" 200 7872
+INFO 2025-08-12 12:42:48,072 basehttp 58730 123145549512704 "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2025-08-12 12:42:48,075 basehttp 58730 123145482354688 "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2025-08-12 12:42:48,075 basehttp 58730 123145532723200 "GET /static/admin/js/core.js HTTP/1.1" 200 5682
+INFO 2025-08-12 12:42:48,076 basehttp 58730 123145566302208 "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 8943
+INFO 2025-08-12 12:42:48,095 basehttp 58730 123145448775680 "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+INFO 2025-08-12 12:42:48,098 basehttp 58730 123145583091712 "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2025-08-12 12:42:48,104 basehttp 58730 123145465565184 "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 232381
+INFO 2025-08-12 12:42:48,132 basehttp 58730 123145499144192 "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 292458
+INFO 2025-08-12 12:42:48,136 basehttp 58730 123145465565184 "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2025-08-12 12:42:48,184 basehttp 58730 123145465565184 "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO 2025-08-12 12:42:48,185 basehttp 58730 123145566302208 "GET /static/admin/js/actions.js HTTP/1.1" 200 7872
+INFO 2025-08-12 12:42:48,189 basehttp 58730 123145583091712 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-08-12 12:42:48,191 basehttp 58730 123145566302208 "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2025-08-12 12:42:48,194 basehttp 58730 123145532723200 "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2025-08-12 12:42:48,196 basehttp 58730 123145583091712 "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 232381
+INFO 2025-08-12 12:42:48,209 basehttp 58730 123145583091712 "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 292458
+INFO 2025-08-12 12:42:48,391 basehttp 58730 123145583091712 "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2025-08-12 12:42:49,808 basehttp 58730 123145465565184 "GET /admin/ HTTP/1.1" 200 19571
+WARNING 2025-08-12 12:53:25,316 log 58730 123145448775680 Not Found: /api/keys/
+WARNING 2025-08-12 12:53:25,336 basehttp 58730 123145448775680 "GET /api/keys/ HTTP/1.1" 404 2106
+WARNING 2025-08-12 12:53:34,690 log 58730 123145448775680 Not Found: /api-keys/
+WARNING 2025-08-12 12:53:34,691 basehttp 58730 123145448775680 "GET /api-keys/ HTTP/1.1" 404 2106
+WARNING 2025-08-12 12:53:40,734 log 58730 123145448775680 Not Found: /api/api-keys/
+WARNING 2025-08-12 12:53:40,734 basehttp 58730 123145448775680 "GET /api/api-keys/ HTTP/1.1" 404 2118
+WARNING 2025-08-12 12:54:03,994 log 58730 123145448775680 Not Found: /services
+WARNING 2025-08-12 12:54:03,994 basehttp 58730 123145448775680 "GET /services HTTP/1.1" 404 2103
+WARNING 2025-08-12 12:54:08,958 log 58730 123145448775680 Not Found: /services/
+WARNING 2025-08-12 12:54:08,958 basehttp 58730 123145448775680 "GET /services/ HTTP/1.1" 404 2106
+INFO 2025-08-12 12:55:49,563 autoreload 58730 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/gst_saas/urls.py changed, reloading.
+INFO 2025-08-12 12:55:51,072 autoreload 66802 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:01:57,280 autoreload 73082 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:02:23,807 autoreload 73082 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/gst_services/views.py changed, reloading.
+INFO 2025-08-12 13:02:25,399 autoreload 73336 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:04:24,006 autoreload 73336 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/gst_services/serializers.py changed, reloading.
+INFO 2025-08-12 13:04:25,681 autoreload 74349 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:04:42,974 autoreload 74349 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/gst_services/serializers.py changed, reloading.
+INFO 2025-08-12 13:04:43,765 autoreload 74553 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:05:13,288 autoreload 74553 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/billing/views.py changed, reloading.
+INFO 2025-08-12 13:05:14,413 autoreload 74820 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:05:52,650 autoreload 74820 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/billing/serializers.py changed, reloading.
+INFO 2025-08-12 13:05:55,892 autoreload 75135 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:06:10,831 autoreload 75135 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/billing/serializers.py changed, reloading.
+INFO 2025-08-12 13:06:12,999 autoreload 75330 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:06:43,214 autoreload 75330 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/billing/serializers.py changed, reloading.
+INFO 2025-08-12 13:06:44,562 autoreload 75601 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:06:57,863 autoreload 75601 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/billing/views.py changed, reloading.
+INFO 2025-08-12 13:06:58,985 autoreload 75692 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:08:23,408 autoreload 77495 140704561990592 Watching for file changes with StatReloader
+WARNING 2025-08-12 13:08:36,763 log 77495 123145511026688 Not Found: /
+WARNING 2025-08-12 13:08:36,770 basehttp 77495 123145511026688 "GET /?ide_webview_request_time=1755004116428 HTTP/1.1" 404 3043
+WARNING 2025-08-12 13:08:37,374 log 77495 123145511026688 Not Found: /@vite/client
+WARNING 2025-08-12 13:08:37,375 basehttp 77495 123145511026688 "GET /@vite/client HTTP/1.1" 404 3058
+INFO 2025-08-12 13:09:00,387 basehttp 77495 123145527816192 "GET /api/docs/ HTTP/1.1" 200 4658
+ERROR 2025-08-12 13:09:01,625 log 77495 123145527816192 Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 84, in get
+    return self._get_schema_response(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 92, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 285, in get_schema
+    paths=self.parse(request, public),
+          ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 256, in parse
+    operation = view.schema.get_operation(
+        path, path_regex, path_prefix, method, self.registry
+    )
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/utils.py", line 451, in get_operation
+    return super().get_operation(path, path_regex, path_prefix, method, registry)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 112, in get_operation
+    operation['responses'] = self._get_response_bodies()
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1397, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200', direction=direction)}
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1453, in _get_response_for_code
+    component = self.resolve_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1648, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction, bypass_extensions)
+                       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 949, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1042, in _map_basic_serializer
+    for field in serializer.fields.values():
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `action` is not valid for model `UserActivity`.
+ERROR 2025-08-12 13:09:01,631 basehttp 77495 123145527816192 "GET /api/schema/ HTTP/1.1" 500 189515
+ERROR 2025-08-12 13:09:02,114 log 77495 123145527816192 Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 84, in get
+    return self._get_schema_response(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 92, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 285, in get_schema
+    paths=self.parse(request, public),
+          ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 256, in parse
+    operation = view.schema.get_operation(
+        path, path_regex, path_prefix, method, self.registry
+    )
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/utils.py", line 451, in get_operation
+    return super().get_operation(path, path_regex, path_prefix, method, registry)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 112, in get_operation
+    operation['responses'] = self._get_response_bodies()
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1397, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200', direction=direction)}
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1453, in _get_response_for_code
+    component = self.resolve_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1648, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction, bypass_extensions)
+                       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 949, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1042, in _map_basic_serializer
+    for field in serializer.fields.values():
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `action` is not valid for model `UserActivity`.
+ERROR 2025-08-12 13:09:02,120 basehttp 77495 123145527816192 "GET /api/schema/ HTTP/1.1" 500 189515
+WARNING 2025-08-12 13:10:07,127 log 77495 123145527816192 Not Found: /api/schema/swagger-ui
+WARNING 2025-08-12 13:10:07,130 basehttp 77495 123145527816192 "GET /api/schema/swagger-ui HTTP/1.1" 404 3085
+WARNING 2025-08-12 13:10:12,061 log 77495 123145527816192 Not Found: /api/schema/swagger-ui/
+WARNING 2025-08-12 13:10:12,065 basehttp 77495 123145527816192 "GET /api/schema/swagger-ui/ HTTP/1.1" 404 3088
+INFO 2025-08-12 13:10:30,545 basehttp 77495 123145527816192 "GET /api/docs/ HTTP/1.1" 200 4658
+ERROR 2025-08-12 13:10:31,359 log 77495 123145527816192 Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 84, in get
+    return self._get_schema_response(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 92, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 285, in get_schema
+    paths=self.parse(request, public),
+          ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 256, in parse
+    operation = view.schema.get_operation(
+        path, path_regex, path_prefix, method, self.registry
+    )
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/utils.py", line 451, in get_operation
+    return super().get_operation(path, path_regex, path_prefix, method, registry)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 112, in get_operation
+    operation['responses'] = self._get_response_bodies()
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1397, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200', direction=direction)}
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1453, in _get_response_for_code
+    component = self.resolve_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1648, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction, bypass_extensions)
+                       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 949, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1042, in _map_basic_serializer
+    for field in serializer.fields.values():
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `action` is not valid for model `UserActivity`.
+ERROR 2025-08-12 13:10:31,442 basehttp 77495 123145527816192 "GET /api/schema/ HTTP/1.1" 500 189515
+ERROR 2025-08-12 13:10:31,607 log 77495 123145527816192 Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 84, in get
+    return self._get_schema_response(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 92, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 285, in get_schema
+    paths=self.parse(request, public),
+          ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 256, in parse
+    operation = view.schema.get_operation(
+        path, path_regex, path_prefix, method, self.registry
+    )
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/utils.py", line 451, in get_operation
+    return super().get_operation(path, path_regex, path_prefix, method, registry)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 112, in get_operation
+    operation['responses'] = self._get_response_bodies()
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1397, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200', direction=direction)}
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1453, in _get_response_for_code
+    component = self.resolve_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1648, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction, bypass_extensions)
+                       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 949, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1042, in _map_basic_serializer
+    for field in serializer.fields.values():
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `action` is not valid for model `UserActivity`.
+ERROR 2025-08-12 13:10:31,611 basehttp 77495 123145527816192 "GET /api/schema/ HTTP/1.1" 500 189515
+INFO 2025-08-12 13:13:45,554 autoreload 77495 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/authentication/serializers.py changed, reloading.
+INFO 2025-08-12 13:13:47,280 autoreload 80245 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:15:16,530 autoreload 80245 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/authentication/views.py changed, reloading.
+INFO 2025-08-12 13:15:17,806 autoreload 81183 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:15:35,769 autoreload 81183 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/billing/views.py changed, reloading.
+INFO 2025-08-12 13:15:36,419 autoreload 81430 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:15:48,745 autoreload 81430 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/billing/views.py changed, reloading.
+INFO 2025-08-12 13:15:49,457 autoreload 81510 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:16:03,178 autoreload 81510 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/gst_services/views.py changed, reloading.
+INFO 2025-08-12 13:16:03,858 autoreload 81700 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:16:42,789 autoreload 83020 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:17:49,791 autoreload 83020 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/billing/admin.py changed, reloading.
+INFO 2025-08-12 13:17:53,279 autoreload 85841 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:18:53,977 autoreload 85841 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/gst_services/views.py changed, reloading.
+INFO 2025-08-12 13:18:55,048 autoreload 88700 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:19:11,609 autoreload 88700 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/gst_services/views.py changed, reloading.
+INFO 2025-08-12 13:19:12,760 autoreload 88922 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:20:09,264 autoreload 88922 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/models.py changed, reloading.
+INFO 2025-08-12 13:20:10,954 autoreload 91731 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:21:02,509 autoreload 91731 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/serializers.py changed, reloading.
+INFO 2025-08-12 13:21:03,498 autoreload 92174 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:21:13,273 autoreload 92174 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/serializers.py changed, reloading.
+INFO 2025-08-12 13:21:14,322 autoreload 92345 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:21:22,240 autoreload 92345 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/serializers.py changed, reloading.
+INFO 2025-08-12 13:21:23,353 autoreload 92425 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:21:37,257 autoreload 92425 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 13:21:38,193 autoreload 92575 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:22:47,986 autoreload 92575 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 13:22:49,237 autoreload 92878 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:23:27,091 autoreload 92878 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/urls.py changed, reloading.
+INFO 2025-08-12 13:23:28,107 autoreload 93248 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:24:06,909 autoreload 93248 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/gst_saas/settings.py changed, reloading.
+INFO 2025-08-12 13:24:07,971 autoreload 95870 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:24:34,185 autoreload 95870 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/admin.py changed, reloading.
+INFO 2025-08-12 13:24:35,502 autoreload 96168 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:28:51,797 autoreload 96168 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/models.py changed, reloading.
+INFO 2025-08-12 13:28:52,638 autoreload 2338 140704561990592 Watching for file changes with StatReloader
+WARNING 2025-08-12 13:30:23,045 log 2338 123145416462336 Not Found: /api/v1/api-management/payment-methods/location/
+WARNING 2025-08-12 13:30:23,047 basehttp 2338 123145416462336 "GET /api/v1/api-management/payment-methods/location/?country_code=IN HTTP/1.1" 404 3179
+WARNING 2025-08-12 13:30:40,581 log 2338 123145416462336 Unauthorized: /api/management/payment-methods/location/
+WARNING 2025-08-12 13:30:40,582 basehttp 2338 123145416462336 "GET /api/management/payment-methods/location/?country_code=IN HTTP/1.1" 401 58
+WARNING 2025-08-12 13:30:51,629 log 2338 123145416462336 Unauthorized: /api/management/payment-methods/location/
+WARNING 2025-08-12 13:30:51,630 basehttp 2338 123145416462336 "GET /api/management/payment-methods/location/?country_code=IN HTTP/1.1" 401 58
+WARNING 2025-08-12 13:31:02,291 log 2338 123145416462336 Unauthorized: /api/management/referrals/
+WARNING 2025-08-12 13:31:02,292 basehttp 2338 123145416462336 "GET /api/management/referrals/ HTTP/1.1" 401 58
+WARNING 2025-08-12 13:31:10,338 log 2338 123145416462336 Not Found: /
+WARNING 2025-08-12 13:31:10,339 basehttp 2338 123145416462336 "GET /?ide_webview_request_time=1755005470228 HTTP/1.1" 404 3043
+WARNING 2025-08-12 13:31:10,916 log 2338 123145416462336 Not Found: /@vite/client
+WARNING 2025-08-12 13:31:10,917 basehttp 2338 123145416462336 "GET /@vite/client HTTP/1.1" 404 3058
+INFO 2025-08-12 13:31:21,410 basehttp 2338 123145433251840 "GET /api/docs/ HTTP/1.1" 200 4658
+ERROR 2025-08-12 13:31:23,252 log 2338 123145433251840 Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 84, in get
+    return self._get_schema_response(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 92, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 285, in get_schema
+    paths=self.parse(request, public),
+          ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 256, in parse
+    operation = view.schema.get_operation(
+        path, path_regex, path_prefix, method, self.registry
+    )
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/utils.py", line 451, in get_operation
+    return super().get_operation(path, path_regex, path_prefix, method, registry)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 112, in get_operation
+    operation['responses'] = self._get_response_bodies()
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1397, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200', direction=direction)}
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1453, in _get_response_for_code
+    component = self.resolve_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1648, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction, bypass_extensions)
+                       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 949, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1042, in _map_basic_serializer
+    for field in serializer.fields.values():
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `avatar` is not valid for model `UserProfile`.
+ERROR 2025-08-12 13:31:23,267 basehttp 2338 123145433251840 "GET /api/schema/ HTTP/1.1" 500 198282
+ERROR 2025-08-12 13:31:23,826 log 2338 123145433251840 Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 84, in get
+    return self._get_schema_response(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 92, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 285, in get_schema
+    paths=self.parse(request, public),
+          ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 256, in parse
+    operation = view.schema.get_operation(
+        path, path_regex, path_prefix, method, self.registry
+    )
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/utils.py", line 451, in get_operation
+    return super().get_operation(path, path_regex, path_prefix, method, registry)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 112, in get_operation
+    operation['responses'] = self._get_response_bodies()
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1397, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200', direction=direction)}
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1453, in _get_response_for_code
+    component = self.resolve_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1648, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction, bypass_extensions)
+                       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 949, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1042, in _map_basic_serializer
+    for field in serializer.fields.values():
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `avatar` is not valid for model `UserProfile`.
+ERROR 2025-08-12 13:31:23,832 basehttp 2338 123145433251840 "GET /api/schema/ HTTP/1.1" 500 198282
+WARNING 2025-08-12 13:31:36,751 log 2338 123145433251840 Not Found: /api/gst/
+WARNING 2025-08-12 13:31:36,751 basehttp 2338 123145433251840 "GET /api/gst/ HTTP/1.1" 404 4264
+INFO 2025-08-12 13:31:46,013 basehttp 2338 123145433251840 "GET /api/gst/services/ HTTP/1.1" 200 10306
+INFO 2025-08-12 13:31:46,101 basehttp 2338 123145483620352 "GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+INFO 2025-08-12 13:31:46,115 basehttp 2338 123145517199360 "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+INFO 2025-08-12 13:31:46,126 basehttp 2338 123145500409856 "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2025-08-12 13:31:46,137 basehttp 2338 123145450041344 "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3385
+INFO 2025-08-12 13:31:46,140 basehttp 2338 123145500409856 "GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1719
+INFO 2025-08-12 13:31:46,142 basehttp 2338 123145483620352 "GET /static/rest_framework/css/default.css HTTP/1.1" 200 1152
+INFO 2025-08-12 13:31:46,151 basehttp 2338 123145517199360 "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3597
+INFO 2025-08-12 13:31:46,160 basehttp 2338 123145450041344 "GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+INFO 2025-08-12 13:31:46,163 basehttp 2338 123145550778368 "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+INFO 2025-08-12 13:31:46,169 basehttp 2338 123145533988864 "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+INFO 2025-08-12 13:31:46,176 basehttp 2338 123145617936384 "GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1719
+INFO 2025-08-12 13:31:46,177 basehttp 2338 123145433251840 "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2025-08-12 13:31:46,178 basehttp 2338 123145601146880 "GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1719
+INFO 2025-08-12 13:31:46,179 basehttp 2338 123145567567872 "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2025-08-12 13:31:46,180 basehttp 2338 123145634725888 "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3597
+INFO 2025-08-12 13:31:46,181 basehttp 2338 123145533988864 "GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+INFO 2025-08-12 13:31:46,184 basehttp 2338 123145651515392 "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3597
+INFO 2025-08-12 13:31:46,185 basehttp 2338 123145584357376 "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2025-08-12 13:31:46,185 basehttp 2338 123145466830848 "GET /static/rest_framework/js/jquery-3.5.1.min.js HTTP/1.1" 200 89476
+INFO 2025-08-12 13:31:46,261 basehttp 2338 123145466830848 "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+INFO 2025-08-12 13:31:46,337 basehttp 2338 123145651515392 "GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+INFO 2025-08-12 13:31:46,512 basehttp 2338 123145651515392 "GET /static/rest_framework/js/jquery-3.5.1.min.js HTTP/1.1" 200 89476
+INFO 2025-08-12 13:31:46,913 basehttp 2338 123145584357376 "GET /static/rest_framework/js/jquery-3.5.1.min.js HTTP/1.1" 200 89476
+WARNING 2025-08-12 13:32:02,770 log 2338 123145416462336 Not Found: /
+WARNING 2025-08-12 13:32:02,772 basehttp 2338 123145416462336 "GET /?ide_webview_request_time=1755005470228 HTTP/1.1" 404 3043
+WARNING 2025-08-12 13:32:02,792 log 2338 123145416462336 Not Found: /
+WARNING 2025-08-12 13:32:02,792 basehttp 2338 123145416462336 "GET /?ide_webview_request_time=1755005470228 HTTP/1.1" 404 3043
+WARNING 2025-08-12 13:32:03,033 log 2338 123145416462336 Not Found: /@vite/client
+WARNING 2025-08-12 13:32:03,034 basehttp 2338 123145416462336 "GET /@vite/client HTTP/1.1" 404 3058
+INFO 2025-08-12 13:32:46,570 basehttp 2338 123145466830848 "GET /api/docs/ HTTP/1.1" 200 4658
+ERROR 2025-08-12 13:32:47,293 log 2338 123145466830848 Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 84, in get
+    return self._get_schema_response(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 92, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 285, in get_schema
+    paths=self.parse(request, public),
+          ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 256, in parse
+    operation = view.schema.get_operation(
+        path, path_regex, path_prefix, method, self.registry
+    )
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/utils.py", line 451, in get_operation
+    return super().get_operation(path, path_regex, path_prefix, method, registry)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 112, in get_operation
+    operation['responses'] = self._get_response_bodies()
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1397, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200', direction=direction)}
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1453, in _get_response_for_code
+    component = self.resolve_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1648, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction, bypass_extensions)
+                       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 949, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1042, in _map_basic_serializer
+    for field in serializer.fields.values():
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `avatar` is not valid for model `UserProfile`.
+ERROR 2025-08-12 13:32:47,305 basehttp 2338 123145466830848 "GET /api/schema/ HTTP/1.1" 500 198282
+ERROR 2025-08-12 13:32:47,626 log 2338 123145466830848 Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 84, in get
+    return self._get_schema_response(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 92, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 285, in get_schema
+    paths=self.parse(request, public),
+          ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 256, in parse
+    operation = view.schema.get_operation(
+        path, path_regex, path_prefix, method, self.registry
+    )
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/utils.py", line 451, in get_operation
+    return super().get_operation(path, path_regex, path_prefix, method, registry)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 112, in get_operation
+    operation['responses'] = self._get_response_bodies()
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1397, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200', direction=direction)}
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1453, in _get_response_for_code
+    component = self.resolve_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1648, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction, bypass_extensions)
+                       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 949, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1042, in _map_basic_serializer
+    for field in serializer.fields.values():
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `avatar` is not valid for model `UserProfile`.
+ERROR 2025-08-12 13:32:47,633 basehttp 2338 123145466830848 "GET /api/schema/ HTTP/1.1" 500 198282
+INFO 2025-08-12 13:34:36,704 autoreload 2338 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/authentication/serializers.py changed, reloading.
+INFO 2025-08-12 13:34:38,348 autoreload 17443 140704561990592 Watching for file changes with StatReloader
+ERROR 2025-08-12 13:34:56,172 log 17443 123145340362752 Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 84, in get
+    return self._get_schema_response(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 92, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 285, in get_schema
+    paths=self.parse(request, public),
+          ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 256, in parse
+    operation = view.schema.get_operation(
+        path, path_regex, path_prefix, method, self.registry
+    )
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/utils.py", line 451, in get_operation
+    return super().get_operation(path, path_regex, path_prefix, method, registry)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 112, in get_operation
+    operation['responses'] = self._get_response_bodies()
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1397, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200', direction=direction)}
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1453, in _get_response_for_code
+    component = self.resolve_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1648, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction, bypass_extensions)
+                       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 949, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1042, in _map_basic_serializer
+    for field in serializer.fields.values():
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `subscription_plan` is not valid for model `User`.
+ERROR 2025-08-12 13:34:56,176 basehttp 17443 123145340362752 "GET /api/schema/ HTTP/1.1" 500 199004
+INFO 2025-08-12 13:34:56,178 basehttp 17443 123145340362752 - Broken pipe from ('127.0.0.1', 61965)
+INFO 2025-08-12 13:35:10,213 basehttp 17443 123145357152256 "GET /api/docs/ HTTP/1.1" 200 4658
+ERROR 2025-08-12 13:35:11,263 log 17443 123145357152256 Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 84, in get
+    return self._get_schema_response(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 92, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 285, in get_schema
+    paths=self.parse(request, public),
+          ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 256, in parse
+    operation = view.schema.get_operation(
+        path, path_regex, path_prefix, method, self.registry
+    )
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/utils.py", line 451, in get_operation
+    return super().get_operation(path, path_regex, path_prefix, method, registry)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 112, in get_operation
+    operation['responses'] = self._get_response_bodies()
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1397, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200', direction=direction)}
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1453, in _get_response_for_code
+    component = self.resolve_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1648, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction, bypass_extensions)
+                       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 949, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1042, in _map_basic_serializer
+    for field in serializer.fields.values():
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `subscription_plan` is not valid for model `User`.
+ERROR 2025-08-12 13:35:11,267 basehttp 17443 123145357152256 "GET /api/schema/ HTTP/1.1" 500 203618
+ERROR 2025-08-12 13:35:11,508 log 17443 123145357152256 Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 84, in get
+    return self._get_schema_response(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 92, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 285, in get_schema
+    paths=self.parse(request, public),
+          ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 256, in parse
+    operation = view.schema.get_operation(
+        path, path_regex, path_prefix, method, self.registry
+    )
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/utils.py", line 451, in get_operation
+    return super().get_operation(path, path_regex, path_prefix, method, registry)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 112, in get_operation
+    operation['responses'] = self._get_response_bodies()
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1397, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200', direction=direction)}
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1453, in _get_response_for_code
+    component = self.resolve_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1648, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction, bypass_extensions)
+                       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 949, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1042, in _map_basic_serializer
+    for field in serializer.fields.values():
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `subscription_plan` is not valid for model `User`.
+ERROR 2025-08-12 13:35:11,514 basehttp 17443 123145357152256 "GET /api/schema/ HTTP/1.1" 500 203618
+INFO 2025-08-12 13:35:16,808 autoreload 17443 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/authentication/serializers.py changed, reloading.
+INFO 2025-08-12 13:35:18,087 autoreload 19062 140704561990592 Watching for file changes with StatReloader
+ERROR 2025-08-12 13:35:36,682 log 19062 123145603989504 Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 84, in get
+    return self._get_schema_response(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 92, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 285, in get_schema
+    paths=self.parse(request, public),
+          ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 256, in parse
+    operation = view.schema.get_operation(
+        path, path_regex, path_prefix, method, self.registry
+    )
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/utils.py", line 451, in get_operation
+    return super().get_operation(path, path_regex, path_prefix, method, registry)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 112, in get_operation
+    operation['responses'] = self._get_response_bodies()
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1397, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200', direction=direction)}
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1453, in _get_response_for_code
+    component = self.resolve_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1648, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction, bypass_extensions)
+                       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 949, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1042, in _map_basic_serializer
+    for field in serializer.fields.values():
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `amount` is not valid for model `Invoice`.
+ERROR 2025-08-12 13:35:36,687 basehttp 19062 123145603989504 "GET /api/schema/ HTTP/1.1" 500 196952
+INFO 2025-08-12 13:35:36,687 basehttp 19062 123145603989504 - Broken pipe from ('127.0.0.1', 62682)
+INFO 2025-08-12 13:36:02,776 autoreload 19062 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/billing/serializers.py changed, reloading.
+INFO 2025-08-12 13:36:03,725 autoreload 20460 140704561990592 Watching for file changes with StatReloader
+ERROR 2025-08-12 13:36:30,399 log 20460 123145497755648 Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 84, in get
+    return self._get_schema_response(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 92, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 285, in get_schema
+    paths=self.parse(request, public),
+          ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 256, in parse
+    operation = view.schema.get_operation(
+        path, path_regex, path_prefix, method, self.registry
+    )
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/utils.py", line 451, in get_operation
+    return super().get_operation(path, path_regex, path_prefix, method, registry)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 112, in get_operation
+    operation['responses'] = self._get_response_bodies()
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1406, in _get_response_bodies
+    content_response = self._get_response_for_code(serializer, code, media_types, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1453, in _get_response_for_code
+    component = self.resolve_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1648, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction, bypass_extensions)
+                       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 949, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1042, in _map_basic_serializer
+    for field in serializer.fields.values():
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `transaction_id` is not valid for model `Payment`.
+ERROR 2025-08-12 13:36:30,405 basehttp 20460 123145497755648 "GET /api/schema/ HTTP/1.1" 500 195903
+INFO 2025-08-12 13:36:30,405 basehttp 20460 123145497755648 - Broken pipe from ('127.0.0.1', 63602)
+INFO 2025-08-12 13:36:51,745 autoreload 20460 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/billing/serializers.py changed, reloading.
+INFO 2025-08-12 13:36:52,701 autoreload 21855 140704561990592 Watching for file changes with StatReloader
+ERROR 2025-08-12 13:37:15,005 log 21855 123145344380928 Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 84, in get
+    return self._get_schema_response(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 92, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 285, in get_schema
+    paths=self.parse(request, public),
+          ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 256, in parse
+    operation = view.schema.get_operation(
+        path, path_regex, path_prefix, method, self.registry
+    )
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/utils.py", line 451, in get_operation
+    return super().get_operation(path, path_regex, path_prefix, method, registry)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 112, in get_operation
+    operation['responses'] = self._get_response_bodies()
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1397, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200', direction=direction)}
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1453, in _get_response_for_code
+    component = self.resolve_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1648, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction, bypass_extensions)
+                       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 949, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1042, in _map_basic_serializer
+    for field in serializer.fields.values():
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `price` is not valid for model `SubscriptionPlan`.
+ERROR 2025-08-12 13:37:15,010 basehttp 21855 123145344380928 "HEAD /api/schema/ HTTP/1.1" 500 0
+INFO 2025-08-12 13:37:44,900 autoreload 21855 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/billing/serializers.py changed, reloading.
+INFO 2025-08-12 13:37:45,912 autoreload 23351 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:38:29,966 autoreload 23351 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/billing/serializers.py changed, reloading.
+INFO 2025-08-12 13:38:31,006 autoreload 23729 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:38:39,070 autoreload 23729 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/billing/serializers.py changed, reloading.
+INFO 2025-08-12 13:38:39,851 autoreload 23883 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:39:30,576 autoreload 23883 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/billing/views.py changed, reloading.
+INFO 2025-08-12 13:39:31,516 autoreload 24280 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:40:57,973 autoreload 28677 140704561990592 Watching for file changes with StatReloader
+ERROR 2025-08-12 13:41:09,579 log 28677 123145494913024 Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 84, in get
+    return self._get_schema_response(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 92, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 285, in get_schema
+    paths=self.parse(request, public),
+          ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 256, in parse
+    operation = view.schema.get_operation(
+        path, path_regex, path_prefix, method, self.registry
+    )
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/utils.py", line 451, in get_operation
+    return super().get_operation(path, path_regex, path_prefix, method, registry)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 112, in get_operation
+    operation['responses'] = self._get_response_bodies()
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1397, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200', direction=direction)}
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1453, in _get_response_for_code
+    component = self.resolve_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1648, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction, bypass_extensions)
+                       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 949, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1042, in _map_basic_serializer
+    for field in serializer.fields.values():
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `response_data` is not valid for model `GSTVerificationResult`.
+ERROR 2025-08-12 13:41:09,585 basehttp 28677 123145494913024 "HEAD /api/schema/ HTTP/1.1" 500 0
+INFO 2025-08-12 13:41:18,094 basehttp 28677 123145511702528 "GET /api/docs/ HTTP/1.1" 200 4658
+ERROR 2025-08-12 13:41:18,930 log 28677 123145511702528 Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 84, in get
+    return self._get_schema_response(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 92, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 285, in get_schema
+    paths=self.parse(request, public),
+          ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 256, in parse
+    operation = view.schema.get_operation(
+        path, path_regex, path_prefix, method, self.registry
+    )
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/utils.py", line 451, in get_operation
+    return super().get_operation(path, path_regex, path_prefix, method, registry)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 112, in get_operation
+    operation['responses'] = self._get_response_bodies()
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1397, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200', direction=direction)}
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1453, in _get_response_for_code
+    component = self.resolve_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1648, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction, bypass_extensions)
+                       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 949, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1042, in _map_basic_serializer
+    for field in serializer.fields.values():
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `response_data` is not valid for model `GSTVerificationResult`.
+ERROR 2025-08-12 13:41:18,938 basehttp 28677 123145511702528 "GET /api/schema/ HTTP/1.1" 500 201774
+ERROR 2025-08-12 13:41:19,433 log 28677 123145511702528 Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 84, in get
+    return self._get_schema_response(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 92, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 285, in get_schema
+    paths=self.parse(request, public),
+          ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 256, in parse
+    operation = view.schema.get_operation(
+        path, path_regex, path_prefix, method, self.registry
+    )
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/utils.py", line 451, in get_operation
+    return super().get_operation(path, path_regex, path_prefix, method, registry)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 112, in get_operation
+    operation['responses'] = self._get_response_bodies()
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1397, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200', direction=direction)}
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1453, in _get_response_for_code
+    component = self.resolve_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1648, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction, bypass_extensions)
+                       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 949, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1042, in _map_basic_serializer
+    for field in serializer.fields.values():
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `response_data` is not valid for model `GSTVerificationResult`.
+ERROR 2025-08-12 13:41:19,440 basehttp 28677 123145511702528 "GET /api/schema/ HTTP/1.1" 500 201774
+INFO 2025-08-12 13:41:44,368 autoreload 28677 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/gst_services/serializers.py changed, reloading.
+INFO 2025-08-12 13:41:45,489 autoreload 30243 140704561990592 Watching for file changes with StatReloader
+ERROR 2025-08-12 13:41:57,953 log 30243 123145378545664 Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 84, in get
+    return self._get_schema_response(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 92, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 285, in get_schema
+    paths=self.parse(request, public),
+          ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 256, in parse
+    operation = view.schema.get_operation(
+        path, path_regex, path_prefix, method, self.registry
+    )
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/utils.py", line 451, in get_operation
+    return super().get_operation(path, path_regex, path_prefix, method, registry)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 112, in get_operation
+    operation['responses'] = self._get_response_bodies()
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1397, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200', direction=direction)}
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1453, in _get_response_for_code
+    component = self.resolve_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1648, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction, bypass_extensions)
+                       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 949, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1042, in _map_basic_serializer
+    for field in serializer.fields.values():
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `endpoint` is not valid for model `GSTService`.
+ERROR 2025-08-12 13:41:57,958 basehttp 30243 123145378545664 "HEAD /api/schema/ HTTP/1.1" 500 0
+INFO 2025-08-12 13:42:27,414 autoreload 30243 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/gst_services/serializers.py changed, reloading.
+INFO 2025-08-12 13:42:28,541 autoreload 31877 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:42:53,940 autoreload 31877 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/gst_services/serializers.py changed, reloading.
+INFO 2025-08-12 13:42:55,070 autoreload 32236 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:43:11,321 autoreload 32236 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/gst_services/serializers.py changed, reloading.
+INFO 2025-08-12 13:43:12,291 autoreload 32395 140704561990592 Watching for file changes with StatReloader
+ERROR 2025-08-12 13:43:24,836 log 32395 123145451237376 Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 84, in get
+    return self._get_schema_response(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 92, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 285, in get_schema
+    paths=self.parse(request, public),
+          ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 256, in parse
+    operation = view.schema.get_operation(
+        path, path_regex, path_prefix, method, self.registry
+    )
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/utils.py", line 451, in get_operation
+    return super().get_operation(path, path_regex, path_prefix, method, registry)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 112, in get_operation
+    operation['responses'] = self._get_response_bodies()
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1397, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200', direction=direction)}
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1453, in _get_response_for_code
+    component = self.resolve_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1648, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction, bypass_extensions)
+                       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 949, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1042, in _map_basic_serializer
+    for field in serializer.fields.values():
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `currency` is not valid for model `CreditPackage`.
+ERROR 2025-08-12 13:43:24,841 basehttp 32395 123145451237376 "GET /api/schema/ HTTP/1.1" 500 191917
+INFO 2025-08-12 13:44:13,710 autoreload 32395 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/serializers.py changed, reloading.
+INFO 2025-08-12 13:44:15,179 autoreload 34048 140704561990592 Watching for file changes with StatReloader
+ERROR 2025-08-12 13:44:26,458 log 34048 123145495855104 Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 84, in get
+    return self._get_schema_response(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/views.py", line 92, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 285, in get_schema
+    paths=self.parse(request, public),
+          ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/generators.py", line 256, in parse
+    operation = view.schema.get_operation(
+        path, path_regex, path_prefix, method, self.registry
+    )
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/utils.py", line 451, in get_operation
+    return super().get_operation(path, path_regex, path_prefix, method, registry)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 112, in get_operation
+    operation['responses'] = self._get_response_bodies()
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1397, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200', direction=direction)}
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1453, in _get_response_for_code
+    component = self.resolve_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1648, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction, bypass_extensions)
+                       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 949, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/drf_spectacular/openapi.py", line 1042, in _map_basic_serializer
+    for field in serializer.fields.values():
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `request_data` is not valid for model `APIUsage`.
+ERROR 2025-08-12 13:44:26,463 basehttp 34048 123145495855104 "GET /api/schema/ HTTP/1.1" 500 196725
+INFO 2025-08-12 13:45:05,241 autoreload 34048 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/serializers.py changed, reloading.
+INFO 2025-08-12 13:45:06,159 autoreload 35429 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:45:17,323 basehttp 35429 123145350127616 "GET /api/schema/ HTTP/1.1" 200 95342
+INFO 2025-08-12 13:45:29,336 basehttp 35429 123145350127616 "GET /api/docs/ HTTP/1.1" 200 4658
+INFO 2025-08-12 13:45:30,286 basehttp 35429 123145350127616 "GET /api/schema/ HTTP/1.1" 200 194005
+INFO 2025-08-12 13:50:12,394 autoreload 35429 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/gst_saas/settings.py changed, reloading.
+INFO 2025-08-12 13:50:13,765 autoreload 39358 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:50:52,482 autoreload 39358 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/authentication/views.py changed, reloading.
+INFO 2025-08-12 13:50:53,474 autoreload 39781 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:51:02,187 autoreload 39781 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/authentication/views.py changed, reloading.
+INFO 2025-08-12 13:51:02,907 autoreload 39846 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:51:32,911 autoreload 39846 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/gst_services/views.py changed, reloading.
+INFO 2025-08-12 13:51:33,766 autoreload 40119 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:51:44,427 autoreload 40119 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 13:51:45,428 autoreload 40198 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:52:13,741 autoreload 40198 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 13:52:14,801 autoreload 40475 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:52:47,570 autoreload 40475 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 13:52:48,511 autoreload 40788 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:53:01,557 autoreload 40788 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/authentication/views.py changed, reloading.
+INFO 2025-08-12 13:53:02,511 autoreload 40967 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:54:43,568 autoreload 40967 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 13:54:45,329 autoreload 41902 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:54:55,775 autoreload 41902 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 13:54:57,492 autoreload 42023 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:55:10,710 autoreload 42023 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 13:55:13,854 autoreload 42201 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:55:34,481 autoreload 42201 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 13:55:35,566 autoreload 42447 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:55:50,133 autoreload 42447 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 13:55:51,870 autoreload 42557 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:56:05,662 autoreload 42557 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 13:56:06,469 autoreload 42738 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:56:24,324 autoreload 42738 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 13:56:25,299 autoreload 42856 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:56:32,951 autoreload 42856 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 13:56:33,949 autoreload 43004 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:56:43,758 autoreload 43004 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 13:56:44,638 autoreload 43078 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:57:03,806 autoreload 43078 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 13:57:05,325 autoreload 43295 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:57:29,866 autoreload 43295 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 13:57:31,041 autoreload 43469 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:57:56,660 autoreload 43469 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 13:57:57,870 autoreload 43748 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:58:07,214 basehttp 43748 123145512718336 "GET /api/docs/ HTTP/1.1" 200 4658
+INFO 2025-08-12 13:58:10,043 basehttp 43748 123145512718336 "GET /api/schema/ HTTP/1.1" 200 180272
+INFO 2025-08-12 13:59:12,997 autoreload 43748 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 13:59:16,279 autoreload 44411 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:59:34,000 autoreload 44411 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 13:59:35,388 autoreload 44535 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 13:59:49,563 autoreload 44535 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 13:59:50,842 autoreload 44727 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 14:00:08,760 autoreload 44727 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 14:00:09,965 autoreload 44912 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 14:00:19,765 autoreload 44912 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 14:00:21,236 autoreload 45001 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 14:00:37,741 autoreload 45001 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 14:00:39,057 autoreload 45113 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 14:00:56,413 autoreload 45113 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 14:00:58,100 autoreload 45339 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 14:01:24,616 autoreload 45339 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 14:01:25,645 autoreload 45591 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 14:01:49,988 autoreload 45591 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 14:01:51,442 autoreload 45842 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 14:04:42,176 basehttp 45842 123145553170432 "GET /api/docs/ HTTP/1.1" 200 4658
+INFO 2025-08-12 14:04:43,437 basehttp 45842 123145553170432 "GET /api/schema/ HTTP/1.1" 200 176183
+INFO 2025-08-12 14:05:02,184 basehttp 45842 123145553170432 "POST /api/gst/search/ HTTP/1.1" 200 248
+INFO 2025-08-12 14:08:54,816 basehttp 45842 123145553170432 "GET /api/gst/services/ HTTP/1.1" 200 52
+WARNING 2025-08-12 14:09:28,992 log 45842 123145553170432 Unauthorized: /api/gst/verify/
+WARNING 2025-08-12 14:09:28,994 basehttp 45842 123145553170432 "POST /api/gst/verify/ HTTP/1.1" 401 52
+INFO 2025-08-12 14:16:14,049 autoreload 45842 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/gst_saas/settings.py changed, reloading.
+INFO 2025-08-12 14:16:16,018 autoreload 53322 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 14:16:25,689 autoreload 53322 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/gst_saas/settings.py changed, reloading.
+INFO 2025-08-12 14:16:26,509 autoreload 53395 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 14:17:57,546 autoreload 53395 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/billing/models.py changed, reloading.
+INFO 2025-08-12 14:17:59,425 autoreload 54172 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 14:18:16,287 autoreload 54172 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/billing/models.py changed, reloading.
+INFO 2025-08-12 14:18:17,425 autoreload 54346 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 14:18:33,038 autoreload 54346 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/billing/serializers.py changed, reloading.
+INFO 2025-08-12 14:18:34,069 autoreload 54462 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 14:18:52,324 autoreload 54462 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/billing/serializers.py changed, reloading.
+INFO 2025-08-12 14:18:53,330 autoreload 54675 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 14:19:05,379 autoreload 54675 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/billing/urls.py changed, reloading.
+INFO 2025-08-12 14:19:06,291 autoreload 54750 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 14:19:23,104 autoreload 54750 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 14:19:24,112 autoreload 54950 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 14:19:35,327 autoreload 54950 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 14:19:36,201 autoreload 55028 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 14:19:54,771 autoreload 55028 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/api_management/views.py changed, reloading.
+INFO 2025-08-12 14:19:55,520 autoreload 55236 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 14:25:55,074 autoreload 55236 140704561990592 /Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/requests/packages.py changed, reloading.
+INFO 2025-08-12 14:25:56,555 autoreload 66133 140704561990592 Watching for file changes with StatReloader
+INFO 2025-08-12 14:27:19,632 autoreload 70907 140704561990592 Watching for file changes with StatReloader
+WARNING 2025-08-12 14:27:33,060 log 70907 123145413214208 Not Found: /
+WARNING 2025-08-12 14:27:33,062 basehttp 70907 123145413214208 "GET /?ide_webview_request_time=1755008851349 HTTP/1.1" 404 3485
+WARNING 2025-08-12 14:27:33,547 log 70907 123145413214208 Not Found: /@vite/client
+WARNING 2025-08-12 14:27:33,547 basehttp 70907 123145413214208 "GET /@vite/client HTTP/1.1" 404 3500
+INFO 2025-08-12 14:31:54,912 basehttp 70907 123145430003712 "GET /api/docs/ HTTP/1.1" 200 4658
+INFO 2025-08-12 14:31:57,038 basehttp 70907 123145430003712 "GET /api/schema/ HTTP/1.1" 200 193508

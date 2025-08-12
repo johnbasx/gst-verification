@@ -1,596 +1,502 @@
-# GST Verification API
+# GST Verification API - Django SaaS Platform
 
-[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://python.org)
-[![Flask Version](https://img.shields.io/badge/flask-2.3.3-green.svg)](https://flask.palletsprojects.com/)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Test Coverage](https://img.shields.io/badge/coverage-95%25-brightgreen.svg)]()
-
-A robust, professional, and secure REST API for fetching GST (Goods and Services Tax) taxpayer details from the official Indian GST portal. This API handles captcha solving, session management, and provides structured JSON responses with comprehensive error handling.
+A comprehensive Django-based SaaS platform for GST (Goods and Services Tax) verification and validation services in India. This platform provides REST API endpoints for GSTIN validation, GST verification, compliance checking, and related services with subscription-based billing.
 
 ## 🚀 Features
 
-- **Secure Session Management**: Automatic session creation and cleanup with configurable timeouts
-- **GSTIN Validation**: Built-in validation for Indian GSTIN format compliance
-- **Rate Limiting**: Configurable rate limiting to prevent abuse
-- **Comprehensive Error Handling**: Detailed error responses with proper HTTP status codes
-- **CORS Support**: Cross-origin resource sharing enabled for web applications
-- **Logging**: Structured logging with configurable levels
-- **Health Monitoring**: Health check endpoint for monitoring and load balancers
-- **Type Safety**: Full type hints for better code maintainability
-- **Testing**: Comprehensive test suite with 95%+ coverage
-- **Production Ready**: Configurable for different environments
+### Core Services
+- **GSTIN Validation**: Free checksum-based GSTIN format validation
+- **GST Verification**: Premium GST verification with detailed business information
+- **Bulk Verification**: Process multiple GSTINs simultaneously
+- **Compliance Checking**: GST compliance status and filing verification
+- **GST Search**: Search GST records by business name, location, etc.
 
-## 📋 Table of Contents
+### Platform Features
+- **User Authentication**: JWT-based authentication with email verification
+- **API Key Management**: Secure API key generation and management
+- **Credit System**: Credit-based usage tracking and billing
+- **Subscription Management**: Multiple subscription tiers with Stripe integration
+- **Rate Limiting**: API rate limiting and usage monitoring
+- **Caching**: Redis-based caching for improved performance
+- **Documentation**: Comprehensive Swagger/OpenAPI documentation
+- **Admin Interface**: Django admin for platform management
 
-- [Installation](#installation)
-- [Quick Start](#quick-start)
-- [API Documentation](#api-documentation)
-- [Configuration](#configuration)
-- [Testing](#testing)
-- [Deployment](#deployment)
-- [Error Handling](#error-handling)
-- [Rate Limiting](#rate-limiting)
-- [Security](#security)
-- [Contributing](#contributing)
-- [License](#license)
+## 🏗️ Architecture
 
-## 🛠 Installation
-
-### Prerequisites
-
-- Python 3.8 or higher
-- pip (Python package installer)
-- Virtual environment (recommended)
-
-### Step-by-Step Installation
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/johnbasx/gst-verification.git
-   cd gst-verification
-   ```
-
-2. **Create and activate virtual environment:**
-   ```bash
-   # On Windows
-   python -m venv venv
-   venv\Scripts\activate
-   
-   # On macOS/Linux
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-
-3. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Set environment variables (optional):**
-   ```bash
-   # Create .env file
-   echo "FLASK_ENV=development" > .env
-   echo "LOG_LEVEL=INFO" >> .env
-   echo "SESSION_TIMEOUT=300" >> .env
-   ```
-
-5. **Run the application:**
-   ```bash
-   python app.py
-   ```
-
-The API will be available at `http://localhost:5001`
-
-## 🚀 Quick Start
-
-### Basic Usage Example
-
-```python
-import requests
-import json
-
-# Base URL
-base_url = "http://localhost:5001/api/v1"
-
-# Step 1: Get captcha
-captcha_response = requests.get(f"{base_url}/getCaptcha")
-captcha_data = captcha_response.json()
-
-if captcha_data['success']:
-    session_id = captcha_data['data']['session_id']
-    captcha_image = captcha_data['data']['captcha_image']
-    
-    # Display captcha image to user (in a real application)
-    print(f"Session ID: {session_id}")
-    print(f"Captcha Image: {captcha_image[:50]}...")  # Truncated for display
-    
-    # Step 2: Get user input for captcha and GSTIN
-    user_captcha = input("Enter captcha: ")
-    user_gstin = input("Enter GSTIN: ")
-    
-    # Step 3: Fetch GST details
-    gst_response = requests.post(
-        f"{base_url}/getGSTDetails",
-        json={
-            "session_id": session_id,
-            "gstin": user_gstin,
-            "captcha": user_captcha
-        },
-        headers={"Content-Type": "application/json"}
-    )
-    
-    gst_data = gst_response.json()
-    
-    if gst_data['success']:
-        print("GST Details:")
-        print(json.dumps(gst_data['data'], indent=2))
-    else:
-        print(f"Error: {gst_data['message']}")
-else:
-    print(f"Failed to get captcha: {captcha_data['message']}")
+### Django Apps Structure
 ```
+gst_saas/
+├── authentication/     # User management and authentication
+├── api_management/     # API keys, usage tracking, credits
+├── gst_services/       # GST verification and validation services
+├── billing/           # Subscription and payment management
+└── gst_saas/          # Main project configuration
+```
+
+### Technology Stack
+- **Backend**: Django 4.2+ with Django REST Framework
+- **Database**: PostgreSQL (production) / SQLite (development)
+- **Cache**: Redis
+- **Payment**: Stripe integration
+- **Documentation**: drf-spectacular (Swagger/OpenAPI)
+- **Task Queue**: Celery with Redis broker
+- **Authentication**: JWT tokens
+
+## 📋 Prerequisites
+
+- Python 3.8+
+- PostgreSQL (for production)
+- Redis
+- Node.js (for frontend, if applicable)
+
+## 🛠️ Installation
+
+### 1. Clone the Repository
+```bash
+git clone <repository-url>
+cd GST-Verification-API
+```
+
+### 2. Create Virtual Environment
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+### 3. Install Dependencies
+```bash
+pip install -r requirements_saas.txt
+```
+
+### 4. Environment Configuration
+Create a `.env` file in the project root:
+```env
+# Django Settings
+SECRET_KEY=your-secret-key-here
+DEBUG=True
+ALLOWED_HOSTS=localhost,127.0.0.1
+
+# Database (PostgreSQL for production)
+DATABASE_URL=postgresql://username:password@localhost:5432/gst_saas_db
+
+# Redis
+REDIS_URL=redis://localhost:6379/0
+
+# Stripe
+STRIPE_PUBLISHABLE_KEY=pk_test_...
+STRIPE_SECRET_KEY=sk_test_...
+STRIPE_WEBHOOK_SECRET=whsec_...
+
+# Email Configuration
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+EMAIL_HOST_USER=your-email@gmail.com
+EMAIL_HOST_PASSWORD=your-app-password
+
+# JWT Settings
+JWT_SECRET_KEY=your-jwt-secret-key
+JWT_ACCESS_TOKEN_LIFETIME=60  # minutes
+JWT_REFRESH_TOKEN_LIFETIME=7  # days
+```
+
+### 5. Database Setup
+```bash
+# Run migrations
+python manage.py makemigrations
+python manage.py migrate
+
+# Create superuser
+python manage.py createsuperuser
+
+# Load initial data (optional)
+python manage.py loaddata fixtures/initial_data.json
+```
+
+### 6. Start Development Server
+```bash
+python manage.py runserver
+```
+
+The API will be available at `http://localhost:8000/`
 
 ## 📚 API Documentation
 
-### Base URL
-```
-http://localhost:5001/api/v1
-```
+### Interactive Documentation
+- **Swagger UI**: `http://localhost:8000/api/schema/swagger-ui/`
+- **ReDoc**: `http://localhost:8000/api/schema/redoc/`
+- **OpenAPI Schema**: `http://localhost:8000/api/schema/`
 
-### Authentication
-Currently, no authentication is required. For production use, consider implementing API key authentication.
+### API Endpoints Overview
 
-### Response Format
-All API responses follow a consistent format:
+#### Authentication (`/api/auth/`)
+- `POST /register/` - User registration
+- `POST /login/` - User login
+- `POST /logout/` - User logout
+- `GET /profile/` - Get user profile
+- `PUT /profile/` - Update user profile
+- `POST /change-password/` - Change password
+- `POST /reset-password/` - Request password reset
+- `POST /verify-email/` - Verify email address
 
-**Success Response:**
-```json
-{
-  "success": true,
-  "message": "Operation completed successfully",
-  "data": {
-    // Response data
-  },
-  "timestamp": "2024-01-15T10:30:00.000Z"
-}
-```
+#### API Management (`/api/management/`)
+- `GET /api-keys/` - List API keys
+- `POST /api-keys/` - Create API key
+- `GET /api-keys/{id}/` - Get API key details
+- `DELETE /api-keys/{id}/` - Delete API key
+- `POST /api-keys/{id}/regenerate/` - Regenerate API key
+- `GET /usage/` - Get API usage statistics
+- `GET /credits/` - Get credit balance
+- `GET /stats/` - Get user statistics
 
-**Error Response:**
-```json
-{
-  "success": false,
-  "error_code": "ERROR_CODE",
-  "message": "Human readable error message",
-  "timestamp": "2024-01-15T10:30:00.000Z"
-}
-```
+#### GST Services (`/api/gst/`)
+- `GET /services/` - List available GST services
+- `POST /validate-gstin/` - Validate GSTIN (Free)
+- `POST /verify/` - Verify GST details (Premium)
+- `POST /verify/bulk/` - Bulk GST verification
+- `POST /compliance/` - Check GST compliance
+- `POST /search/` - Search GST records
+- `GET /history/` - Get verification history
 
-### Endpoints
+#### Billing (`/api/billing/`)
+- `GET /plans/` - List subscription plans
+- `GET /subscription/` - Get current subscription
+- `POST /subscription/` - Create subscription
+- `PUT /subscription/` - Update subscription
+- `DELETE /subscription/cancel/` - Cancel subscription
+- `GET /invoices/` - List invoices
+- `GET /invoices/{id}/` - Get invoice details
+- `POST /payments/` - Create payment
+- `POST /discounts/validate/` - Validate discount code
 
-#### 1. Health Check
+## 🔐 Authentication
 
-**GET** `/health`
-
-Check if the API is running and healthy.
-
-**Response:**
-```json
-{
-  "status": "healthy",
-  "service": "GST Verification API",
-  "version": "1.0.0",
-  "timestamp": "2024-01-15T10:30:00.000Z"
-}
-```
-
-#### 2. Get Captcha
-
-**GET** `/getCaptcha`
-
-Fetch a captcha image and create a session for GST verification.
-
-**Rate Limit:** 20 requests per minute
-
-**Response:**
-```json
-{
-  "success": true,
-  "message": "Captcha fetched successfully",
-  "data": {
-    "session_id": "550e8400-e29b-41d4-a716-446655440000",
-    "captcha_image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...",
-    "expires_in": 300
-  },
-  "timestamp": "2024-01-15T10:30:00.000Z"
-}
+### API Key Authentication
+For API endpoints, include the API key in the header:
+```bash
+curl -H "X-API-Key: your-api-key-here" \
+     -H "Content-Type: application/json" \
+     http://localhost:8000/api/gst/verify/
 ```
 
-**Error Codes:**
-- `SESSION_INIT_FAILED`: Failed to initialize session with GST portal
-- `CAPTCHA_FETCH_FAILED`: Failed to fetch captcha from GST portal
-- `TIMEOUT_ERROR`: Request timeout
-- `CONNECTION_ERROR`: Connection failed
-- `INTERNAL_ERROR`: Unexpected server error
-
-#### 3. Get GST Details
-
-**POST** `/getGSTDetails`
-
-Fetch GST taxpayer details using GSTIN and captcha.
-
-**Rate Limit:** 10 requests per minute
-
-**Request Body:**
-```json
-{
-  "session_id": "550e8400-e29b-41d4-a716-446655440000",
-  "gstin": "01ABCDE0123F1Z5",
-  "captcha": "ABC123"
-}
+### JWT Authentication
+For user-specific endpoints, use JWT tokens:
+```bash
+curl -H "Authorization: Bearer your-jwt-token-here" \
+     -H "Content-Type: application/json" \
+     http://localhost:8000/api/auth/profile/
 ```
 
-**Response:**
-```json
-{
-  "success": true,
-  "message": "GST details fetched successfully",
-  "data": {
-    "gstin": "01ABCDE0123F1Z5",
-    "lgnm": "EXAMPLE COMPANY PRIVATE LIMITED",
-    "tradeNam": "EXAMPLE TRADE NAME",
-    "sts": "Active",
-    "rgdt": "01/07/2017",
-    "ctb": "Private Limited Company",
-    "pradr": {
-      "adr": "123, EXAMPLE STREET, EXAMPLE CITY",
-      "loc": "EXAMPLE LOCALITY",
-      "dst": "EXAMPLE DISTRICT",
-      "stcd": "01",
-      "pncd": "110001"
-    },
-    "adadr": [],
-    "nba": [
-      "Wholesale Business",
-      "Retail Business"
+## 💳 Subscription Plans
+
+### Free Plan
+- 100 API calls/month
+- GSTIN validation only
+- Basic support
+- **Price**: Free
+
+### Starter Plan
+- 1,000 API calls/month
+- GSTIN validation + Basic verification
+- Email support
+- **Price**: ₹499/month
+
+### Professional Plan
+- 10,000 API calls/month
+- All verification features
+- Bulk verification
+- Priority support
+- **Price**: ₹999/month
+
+### Enterprise Plan
+- Unlimited API calls
+- All features
+- Custom integrations
+- Dedicated support
+- **Price**: ₹2,999/month
+
+## 🧪 Usage Examples
+
+### 1. User Registration
+```bash
+curl -X POST http://localhost:8000/api/auth/register/ \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "user@example.com",
+    "password": "securepassword123",
+    "first_name": "John",
+    "last_name": "Doe",
+    "company_name": "Example Corp"
+  }'
+```
+
+### 2. GSTIN Validation (Free)
+```bash
+curl -X POST http://localhost:8000/api/gst/validate-gstin/ \
+  -H "Content-Type: application/json" \
+  -d '{"gstin": "29ABCDE1234F1Z5"}'
+```
+
+### 3. GST Verification (Premium)
+```bash
+curl -X POST http://localhost:8000/api/gst/verify/ \
+  -H "X-API-Key: your-api-key-here" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "gstin": "29ABCDE1234F1Z5",
+    "verification_type": "detailed"
+  }'
+```
+
+### 4. Bulk Verification
+```bash
+curl -X POST http://localhost:8000/api/gst/verify/bulk/ \
+  -H "X-API-Key: your-api-key-here" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "gstins": [
+      "29ABCDE1234F1Z5",
+      "27ABCDE1234F1Z3",
+      "19ABCDE1234F1Z1"
     ],
-    "dty": "Regular",
-    "cxdt": "",
-    "stj": "EXAMPLE JURISDICTION",
-    "ctj": "EXAMPLE CENTRAL JURISDICTION",
-    "einvoiceStatus": "Yes",
-    "adhrVFlag": "Yes",
-    "adhrVdt": "15/08/2021",
-    "ekycVFlag": "Yes",
-    "cmpRt": "NA",
-    "isFieldVisitConducted": "No"
-  },
-  "timestamp": "2024-01-15T10:30:00.000Z"
-}
+    "verification_type": "basic"
+  }'
 ```
 
-**Error Codes:**
-- `INVALID_CONTENT_TYPE`: Content-Type must be application/json
-- `EMPTY_REQUEST`: Request body cannot be empty
-- `MISSING_FIELDS`: Required fields are missing
-- `INVALID_GSTIN`: GSTIN format is invalid
-- `INVALID_CAPTCHA`: Captcha is invalid or too short
-- `INVALID_SESSION`: Session ID is invalid or expired
-- `SESSION_EXPIRED`: Session has expired
-- `GST_PORTAL_ERROR`: Error from GST portal
-- `TIMEOUT_ERROR`: Request timeout
-- `CONNECTION_ERROR`: Connection failed
-- `INTERNAL_ERROR`: Unexpected server error
+## 🔧 Configuration
 
-#### 4. Validate GSTIN
+### Django Settings
+Key configuration options in `gst_saas/settings.py`:
 
-**POST** `/validateGSTIN`
-
-Validate GSTIN format without making external requests.
-
-**Request Body:**
-```json
-{
-  "gstin": "01ABCDE0123F1Z5"
-}
-```
-
-**Response:**
-```json
-{
-  "success": true,
-  "message": "GSTIN validation completed",
-  "data": {
-    "gstin": "01ABCDE0123F1Z5",
-    "is_valid": true,
-    "format_info": {
-      "expected_length": 15,
-      "pattern": "2 digits (state) + 10 alphanumeric (PAN) + 1 check digit + 1 alphabet + 1 number + 1 alphabet"
+```python
+# API Rate Limiting
+REST_FRAMEWORK = {
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle'
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '100/hour',
+        'user': '1000/hour'
     }
-  },
-  "timestamp": "2024-01-15T10:30:00.000Z"
 }
-```
 
-## ⚙️ Configuration
+# Cache Configuration
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://127.0.0.1:6379/1',
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        }
+    }
+}
+
+# Celery Configuration
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+```
 
 ### Environment Variables
-
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `FLASK_ENV` | `development` | Environment (development/testing/staging/production) |
-| `PORT` | `5001` | Port to run the application |
-| `DEBUG` | `False` | Enable debug mode |
-| `LOG_LEVEL` | `INFO` | Logging level (DEBUG/INFO/WARNING/ERROR) |
-| `LOG_FILE` | `gst_api.log` | Log file path |
-| `SESSION_TIMEOUT` | `300` | Session timeout in seconds |
-| `REQUEST_TIMEOUT` | `30` | HTTP request timeout in seconds |
-| `RATE_LIMIT_CAPTCHA` | `20` | Rate limit for captcha endpoint (per minute) |
-| `RATE_LIMIT_GST_DETAILS` | `10` | Rate limit for GST details endpoint (per minute) |
-| `CORS_ORIGINS` | `*` | Allowed CORS origins |
-| `SECRET_KEY` | `dev-secret-key-change-in-production` | Flask secret key |
-
-### Configuration Files
-
-The application uses `config.py` for environment-specific configurations:
-
-- `DevelopmentConfig`: For local development
-- `TestingConfig`: For running tests
-- `StagingConfig`: For staging environment
-- `ProductionConfig`: For production deployment
+Create a `.env` file with the following variables:
+- `SECRET_KEY`: Django secret key
+- `DEBUG`: Debug mode (True/False)
+- `DATABASE_URL`: Database connection string
+- `REDIS_URL`: Redis connection string
+- `STRIPE_SECRET_KEY`: Stripe secret key
+- `EMAIL_HOST_USER`: SMTP email username
+- `EMAIL_HOST_PASSWORD`: SMTP email password
 
 ## 🧪 Testing
 
-### Running Tests
-
+### Run Tests
 ```bash
 # Run all tests
-pytest
+python manage.py test
+
+# Run tests for specific app
+python manage.py test authentication
+python manage.py test api_management
+python manage.py test gst_services
+python manage.py test billing
 
 # Run with coverage
-pytest --cov=app --cov-report=html
-
-# Run specific test file
-pytest test_app.py
-
-# Run with verbose output
-pytest -v
+coverage run --source='.' manage.py test
+coverage report
+coverage html
 ```
 
-### Test Coverage
-
-The test suite covers:
-- ✅ All API endpoints
-- ✅ GSTIN validation
-- ✅ Session management
-- ✅ Error handling
-- ✅ Rate limiting
-- ✅ Configuration validation
-
-### Writing Tests
-
-Tests are located in `test_app.py`. To add new tests:
-
-```python
-def test_new_functionality(client):
-    """Test description."""
-    response = client.get('/api/v1/endpoint')
-    assert response.status_code == 200
-    
-    data = json.loads(response.data)
-    assert data['success'] == True
+### Test Data
+Use the provided fixtures for testing:
+```bash
+python manage.py loaddata fixtures/test_data.json
 ```
 
 ## 🚀 Deployment
 
+### Production Setup
+
+1. **Environment Variables**
+   ```bash
+   export DEBUG=False
+   export ALLOWED_HOSTS=yourdomain.com
+   export DATABASE_URL=postgresql://...
+   ```
+
+2. **Static Files**
+   ```bash
+   python manage.py collectstatic
+   ```
+
+3. **Database Migration**
+   ```bash
+   python manage.py migrate
+   ```
+
+4. **Start Services**
+   ```bash
+   # Django application
+   gunicorn gst_saas.wsgi:application
+   
+   # Celery worker
+   celery -A gst_saas worker -l info
+   
+   # Celery beat (for scheduled tasks)
+   celery -A gst_saas beat -l info
+   ```
+
 ### Docker Deployment
+```dockerfile
+# Dockerfile
+FROM python:3.9
 
-1. **Create Dockerfile:**
-   ```dockerfile
-   FROM python:3.9-slim
-   
-   WORKDIR /app
-   
-   COPY requirements.txt .
-   RUN pip install --no-cache-dir -r requirements.txt
-   
-   COPY . .
-   
-   EXPOSE 5001
-   
-   CMD ["gunicorn", "--bind", "0.0.0.0:5001", "app:app"]
-   ```
+WORKDIR /app
+COPY requirements_saas.txt .
+RUN pip install -r requirements_saas.txt
 
-2. **Build and run:**
-   ```bash
-   docker build -t gst-verification-api .
-   docker run -p 5001:5001 -e FLASK_ENV=production gst-verification-api
-   ```
+COPY . .
+EXPOSE 8000
 
-### Production Deployment
+CMD ["gunicorn", "gst_saas.wsgi:application", "--bind", "0.0.0.0:8000"]
+```
 
-1. **Using Gunicorn:**
-   ```bash
-   gunicorn --bind 0.0.0.0:5001 --workers 4 app:app
-   ```
+```yaml
+# docker-compose.yml
+version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=False
+      - DATABASE_URL=postgresql://postgres:password@db:5432/gst_saas
+    depends_on:
+      - db
+      - redis
+  
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: gst_saas
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  
+  redis:
+    image: redis:6
+    ports:
+      - "6379:6379"
 
-2. **Using systemd service:**
-   ```ini
-   [Unit]
-   Description=GST Verification API
-   After=network.target
-   
-   [Service]
-   User=www-data
-   Group=www-data
-   WorkingDirectory=/path/to/GST-Verification-API
-   Environment=FLASK_ENV=production
-   ExecStart=/path/to/venv/bin/gunicorn --bind 0.0.0.0:5001 --workers 4 app:app
-   Restart=always
-   
-   [Install]
-   WantedBy=multi-user.target
-   ```
+volumes:
+  postgres_data:
+```
 
-3. **Nginx configuration:**
-   ```nginx
-   server {
-       listen 80;
-       server_name your-domain.com;
-       
-       location / {
-           proxy_pass http://127.0.0.1:5001;
-           proxy_set_header Host $host;
-           proxy_set_header X-Real-IP $remote_addr;
-           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-           proxy_set_header X-Forwarded-Proto $scheme;
-       }
-   }
-   ```
+## 📊 Monitoring & Analytics
 
-### Cloud Deployment
+### Key Metrics
+- API request volume and response times
+- User registration and subscription rates
+- Credit consumption patterns
+- Error rates and types
+- Revenue and billing metrics
 
-#### Heroku
+### Health Checks
 ```bash
-# Create Procfile
-echo "web: gunicorn app:app" > Procfile
+# API health check
+curl http://localhost:8000/api/health/
 
-# Deploy
-heroku create your-app-name
-git push heroku main
+# Database health check
+python manage.py check --database default
+
+# Cache health check
+python manage.py shell -c "from django.core.cache import cache; print(cache.get('test') or 'Cache OK')"
 ```
 
-#### AWS Lambda
-Use the Serverless Framework or AWS SAM for serverless deployment.
+## 🔒 Security Features
 
-## 🛡️ Error Handling
+- **Input Validation**: Comprehensive request validation
+- **Rate Limiting**: API rate limiting per user/IP
+- **Authentication**: JWT-based secure authentication
+- **API Keys**: Secure API key management
+- **Data Encryption**: Sensitive data encryption
+- **CORS**: Configurable CORS policies
+- **HTTPS**: SSL/TLS encryption support
+- **Audit Logging**: Complete request/response logging
 
-The API provides comprehensive error handling with standardized error codes:
+## 📖 App Documentation
 
-### HTTP Status Codes
-- `200`: Success
-- `400`: Bad Request (validation errors)
-- `404`: Not Found
-- `405`: Method Not Allowed
-- `429`: Too Many Requests (rate limiting)
-- `500`: Internal Server Error
-- `502`: Bad Gateway (GST portal errors)
-- `503`: Service Unavailable (connection errors)
-- `504`: Gateway Timeout
+Detailed documentation for each Django app:
 
-### Error Response Format
-```json
-{
-  "success": false,
-  "error_code": "SPECIFIC_ERROR_CODE",
-  "message": "Human readable error message",
-  "timestamp": "2024-01-15T10:30:00.000Z"
-}
-```
-
-## 🚦 Rate Limiting
-
-Rate limiting is implemented to prevent abuse:
-
-- **Captcha endpoint**: 20 requests per minute
-- **GST details endpoint**: 10 requests per minute
-- **Validation endpoint**: No rate limit
-
-Rate limits are configurable via environment variables and can be adjusted based on your needs.
-
-## 🔒 Security
-
-### Security Features
-- Input validation and sanitization
-- GSTIN format validation
-- Session timeout management
-- Rate limiting
-- CORS configuration
-- Security headers
-- Error message sanitization
-
-### Security Best Practices
-1. Use HTTPS in production
-2. Set strong `SECRET_KEY`
-3. Configure appropriate CORS origins
-4. Implement API key authentication for production
-5. Monitor and log security events
-6. Regular security updates
-
-### Production Security Checklist
-- [ ] Set `FLASK_ENV=production`
-- [ ] Configure strong `SECRET_KEY`
-- [ ] Enable HTTPS
-- [ ] Set appropriate CORS origins
-- [ ] Implement authentication
-- [ ] Configure firewall rules
-- [ ] Set up monitoring and alerting
-- [ ] Regular security audits
+- [Authentication App](authentication/README.md) - User management and authentication
+- [API Management App](api_management/README.md) - API keys, usage tracking, credits
+- [GST Services App](gst_services/README.md) - GST verification and validation
+- [Billing App](billing/README.md) - Subscription and payment management
 
 ## 🤝 Contributing
 
-We welcome contributions! Please follow these steps:
-
-1. **Fork the repository**
-2. **Create a feature branch:**
-   ```bash
-   git checkout -b feature/amazing-feature
-   ```
-3. **Make your changes and add tests**
-4. **Run tests:**
-   ```bash
-   pytest
-   ```
-5. **Run code formatting:**
-   ```bash
-   black .
-   flake8
-   ```
-6. **Commit your changes:**
-   ```bash
-   git commit -m "Add amazing feature"
-   ```
-7. **Push to the branch:**
-   ```bash
-   git push origin feature/amazing-feature
-   ```
-8. **Open a Pull Request**
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ### Development Guidelines
-- Follow PEP 8 style guide
-- Add type hints to all functions
+- Follow PEP 8 style guidelines
 - Write comprehensive tests
 - Update documentation
-- Add logging for important operations
+- Use meaningful commit messages
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 📞 Support
+## 🆘 Support
 
-For support and questions:
+- **Documentation**: Check the app-specific README files
+- **Issues**: Create an issue on GitHub
+- **Email**: support@gstverificationapi.com
+- **API Status**: Check status page for service updates
 
-- **Email**: support@example.com
-- **Issues**: [GitHub Issues](https://github.com/your-username/GST-Verification-API/issues)
-- **Documentation**: [API Documentation](https://your-docs-url.com)
+## 🚧 Roadmap
 
-## 🙏 Acknowledgments
-
-- Indian Government GST Portal for providing the verification service
-- Flask community for the excellent web framework
-- Contributors and users of this API
-
-## 📈 Roadmap
-
-- [ ] Database integration for session storage
-- [ ] Redis support for distributed caching
-- [ ] API key authentication
-- [ ] Webhook support
-- [ ] Bulk GSTIN verification
-- [ ] Advanced analytics and monitoring
+### Upcoming Features
 - [ ] GraphQL API support
-- [ ] SDK for popular programming languages
+- [ ] Webhook notifications
+- [ ] Advanced analytics dashboard
+- [ ] Mobile app integration
+- [ ] Multi-language support
+- [ ] Advanced fraud detection
+- [ ] Custom reporting tools
+- [ ] Third-party integrations (Zapier, etc.)
+
+### Version History
+- **v1.0.0** - Initial release with core GST verification features
+- **v1.1.0** - Added subscription management and billing
+- **v1.2.0** - Enhanced API management and rate limiting
+- **v1.3.0** - Added bulk verification and caching
 
 ---
 
-**Made with ❤️ for the developer community**
+**Built with ❤️ using Django and Django REST Framework**
