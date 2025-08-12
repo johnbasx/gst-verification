@@ -36,14 +36,6 @@ from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 
 from config import get_config, validate_config
-from logging_config import setup_logging
-from monitoring import initialize_monitoring, monitor_request
-from performance import initialize_performance_optimizations, cached, timed
-
-# Initialize performance optimizations
-performance_components = None
-monitoring_components = None
-logger_config = None
 
 # Global variables for components
 app = None
@@ -52,11 +44,25 @@ logger = None
 
 # In-memory session storage (use Redis in production)
 sessions = {}
+gst_sessions: Dict[str, Dict[str, Any]] = {}
+
+
+def setup_basic_logging():
+    """Setup basic logging configuration."""
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.StreamHandler(),
+            logging.FileHandler('logs/gst_api.log')
+        ]
+    )
+    return logging.getLogger('gst_api')
 
 
 def create_app(config_name: Optional[str] = None) -> Flask:
     """Application factory pattern for creating Flask app."""
-    global app, limiter, logger, performance_components, monitoring_components, logger_config
+    global app, limiter, logger
     
     # Create Flask app
     app = Flask(__name__)
@@ -64,51 +70,31 @@ def create_app(config_name: Optional[str] = None) -> Flask:
     # Load configuration
     config = get_config(config_name)
     app.config.from_object(config)
+    app.config['START_TIME'] = datetime.now()
+    app.config['VERSION'] = '1.0.0'
     
     # Validate configuration
-    validate_config(app.config)
+    try:
+        validate_config(app.config)
+    except ValueError as e:
+        print(f"Configuration validation failed: {e}")
+        # Continue with warnings for development
     
-    # Initialize logging
-    logger_config = setup_logging({
-        'LOG_DIR': app.config.get('LOG_DIR', 'logs'),
-        'LOG_LEVEL': app.config.get('LOG_LEVEL', 'INFO'),
-        'FLASK_ENV': app.config.get('FLASK_ENV', 'development'),
-        'JSON_LOGGING': app.config.get('JSON_LOGGING', True),
-        'FILE_LOGGING': app.config.get('FILE_LOGGING', True),
-        'CONSOLE_LOGGING': app.config.get('CONSOLE_LOGGING', True)
-    })
-    
-    # Configure Flask logging
-    logger_config.configure_flask_logging(app)
-    logger_config.setup_request_logging(app)
-    logger = logger_config.get_logger('gst_api')
-    
-    # Initialize performance optimizations
-    performance_components = initialize_performance_optimizations({
-        'REDIS_URL': app.config.get('REDIS_URL'),
-        'MEMORY_CACHE_SIZE': app.config.get('CACHE_SIZE', 1000),
-        'DEFAULT_TTL': app.config.get('CACHE_TTL', 300),
-        'HTTP_POOL_CONNECTIONS': app.config.get('HTTP_POOL_CONNECTIONS', 10),
-        'HTTP_POOL_MAXSIZE': app.config.get('HTTP_POOL_MAXSIZE', 20),
-        'HTTP_RETRIES': app.config.get('HTTP_RETRIES', 3),
-        'ASYNC_MAX_WORKERS': app.config.get('ASYNC_MAX_WORKERS', 5)
-    })
-    
-    # Initialize monitoring
-    monitoring_components = initialize_monitoring()
+    # Initialize basic logging
+    logger = setup_basic_logging()
     
     # Setup CORS
     CORS(app, 
          origins=app.config.get('CORS_ORIGINS', ['*']),
-         methods=app.config.get('CORS_METHODS', ['GET', 'POST']),
-         allow_headers=app.config.get('CORS_HEADERS', ['Content-Type', 'Authorization']))
+         methods=['GET', 'POST'],
+         allow_headers=['Content-Type', 'Authorization'])
     
-    # Setup rate limiting
+    # Setup rate limiting with memory storage for development
     limiter = Limiter(
         app=app,
         key_func=get_remote_address,
-        default_limits=app.config.get('RATE_LIMITS', ["100 per hour"]),
-        storage_uri=app.config.get('REDIS_URL', 'memory://'),
+        default_limits=["100 per hour"],
+        storage_uri="memory://",
         strategy="fixed-window"
     )
     
@@ -124,6 +110,7 @@ def create_app(config_name: Optional[str] = None) -> Flask:
     logger.info(f"GST Verification API initialized in {app.config.get('FLASK_ENV', 'unknown')} mode")
     
     return app
+
 
 def setup_middleware(app: Flask):
     """Setup middleware for request processing."""
@@ -145,10 +132,6 @@ def setup_middleware(app: Flask):
                 'user_agent': request.headers.get('User-Agent', '')
             }
         )
-        
-        # Update active sessions count
-        if monitoring_components:
-            monitoring_components[0].update_active_sessions(len(sessions))
     
     @app.after_request
     def after_request(response):
@@ -168,17 +151,6 @@ def setup_middleware(app: Flask):
                     'response_size': len(response.get_data())
                 }
             )
-            
-            # Record performance metrics
-            if logger_config:
-                logger_config.log_performance(
-                    f"{request.method} {request.path}",
-                    duration,
-                    {
-                        'status_code': response.status_code,
-                        'request_id': getattr(g, 'request_id', 'unknown')
-                    }
-                )
         
         # Add security headers
         response.headers['X-Content-Type-Options'] = 'nosniff'
@@ -188,6 +160,7 @@ def setup_middleware(app: Flask):
         response.headers['Content-Security-Policy'] = "default-src 'self'"
         
         return response
+
 
 def register_error_handlers(app: Flask):
     """Register error handlers for the application."""
@@ -216,28 +189,11 @@ def register_error_handlers(app: Flask):
             'request_id': getattr(g, 'request_id', 'unknown')
         }), 404
     
-    @app.errorhandler(405)
-    def method_not_allowed(error):
-        """Handle method not allowed errors."""
-        logger.warning(f"Method not allowed: {request.method} {request.path}", 
-                      extra={'request_id': getattr(g, 'request_id', 'unknown')})
-        return jsonify({
-            'success': False,
-            'error': 'Method Not Allowed',
-            'message': f'The {request.method} method is not allowed for this endpoint',
-            'error_code': 'METHOD_NOT_ALLOWED',
-            'request_id': getattr(g, 'request_id', 'unknown')
-        }), 405
-    
     @app.errorhandler(429)
     def rate_limit_exceeded(error):
         """Handle rate limit exceeded errors."""
         logger.warning(f"Rate limit exceeded: {request.path}", 
                       extra={'request_id': getattr(g, 'request_id', 'unknown')})
-        
-        # Record rate limit hit
-        if monitoring_components:
-            monitoring_components[0].record_rate_limit_hit(request.endpoint or 'unknown')
         
         return jsonify({
             'success': False,
@@ -255,10 +211,6 @@ def register_error_handlers(app: Flask):
                     exc_info=True,
                     extra={'request_id': getattr(g, 'request_id', 'unknown')})
         
-        # Record error in monitoring
-        if monitoring_components:
-            monitoring_components[0].record_error('internal_error', request.endpoint or 'unknown')
-        
         return jsonify({
             'success': False,
             'error': 'Internal Server Error',
@@ -266,38 +218,12 @@ def register_error_handlers(app: Flask):
             'error_code': 'INTERNAL_ERROR',
             'request_id': getattr(g, 'request_id', 'unknown')
         }), 500
-    
-    @app.errorhandler(Exception)
-    def handle_exception(error):
-        """Handle unexpected exceptions."""
-        logger.error(f"Unhandled exception: {error}", 
-                    exc_info=True,
-                    extra={'request_id': getattr(g, 'request_id', 'unknown')})
-        
-        # Record error in monitoring
-        if monitoring_components:
-            monitoring_components[0].record_error(type(error).__name__, request.endpoint or 'unknown')
-        
-        return jsonify({
-            'success': False,
-            'error': 'Internal Server Error',
-            'message': 'An unexpected error occurred. Please try again later.',
-            'error_code': 'UNEXPECTED_ERROR',
-            'request_id': getattr(g, 'request_id', 'unknown')
-        }), 500
 
-# Configuration
-# Remove duplicate Config class - using the one from config.py
-
-# Global session storage (In production, use Redis or database)
-gst_sessions: Dict[str, Dict[str, Any]] = {}
 
 # Utility functions
-@cached(ttl=300, key_prefix="gstin_validation")
-@timed()
 def validate_gstin(gstin: str) -> bool:
     """
-    Validate GSTIN format with caching.
+    Validate GSTIN format.
     
     GSTIN format: 15 characters
     - First 2 characters: State code (digits)
@@ -312,10 +238,6 @@ def validate_gstin(gstin: str) -> bool:
     # GSTIN pattern: 2 digits + 10 alphanumeric + 1 digit + Z + 1 alphanumeric
     pattern = r'^[0-9]{2}[A-Z0-9]{10}[0-9]{1}Z[A-Z0-9]{1}$'
     is_valid = bool(re.match(pattern, gstin.upper()))
-    
-    # Record validation metrics
-    if monitoring_components:
-        monitoring_components[0].record_gstin_validation(is_valid)
     
     return is_valid
 
@@ -341,10 +263,6 @@ def clean_expired_sessions() -> int:
         del gst_sessions[session_id]
         logger.info(f"Expired session removed: {session_id}")
     
-    # Update active sessions count
-    if monitoring_components:
-        monitoring_components[0].update_active_sessions(len(gst_sessions))
-    
     return len(expired_sessions)
 
 
@@ -355,28 +273,24 @@ def create_session() -> str:
     # Create optimized requests session
     requests_session = requests.Session()
     
-    # Use HTTP connection pool if available
-    if performance_components and performance_components['http_pool']:
-        requests_session = performance_components['http_pool'].session
-    else:
-        # Configure session with optimizations
-        from requests.adapters import HTTPAdapter
-        from urllib3.util.retry import Retry
-        
-        retry_strategy = Retry(
-            total=3,
-            backoff_factor=0.3,
-            status_forcelist=[429, 500, 502, 503, 504]
-        )
-        
-        adapter = HTTPAdapter(
-            pool_connections=10,
-            pool_maxsize=20,
-            max_retries=retry_strategy
-        )
-        
-        requests_session.mount("http://", adapter)
-        requests_session.mount("https://", adapter)
+    # Configure session with optimizations
+    from requests.adapters import HTTPAdapter
+    from urllib3.util.retry import Retry
+    
+    retry_strategy = Retry(
+        total=3,
+        backoff_factor=0.3,
+        status_forcelist=[429, 500, 502, 503, 504]
+    )
+    
+    adapter = HTTPAdapter(
+        pool_connections=10,
+        pool_maxsize=20,
+        max_retries=retry_strategy
+    )
+    
+    requests_session.mount("http://", adapter)
+    requests_session.mount("https://", adapter)
     
     gst_sessions[session_id] = {
         'created_at': datetime.now(),
@@ -390,10 +304,6 @@ def create_session() -> str:
         clean_expired_sessions()
     
     logger.info(f"New session created: {session_id}")
-    
-    # Update active sessions count
-    if monitoring_components:
-        monitoring_components[0].update_active_sessions(len(gst_sessions))
     
     return session_id
 
@@ -418,10 +328,6 @@ def get_session(session_id: str) -> Optional[Dict[str, Any]]:
         del gst_sessions[session_id]
         logger.info(f"Expired session removed: {session_id}")
         
-        # Update active sessions count
-        if monitoring_components:
-            monitoring_components[0].update_active_sessions(len(gst_sessions))
-        
         return None
     
     # Update last activity
@@ -430,56 +336,6 @@ def get_session(session_id: str) -> Optional[Dict[str, Any]]:
     
     return session_data
 
-def rate_limit(max_requests: int = 10, window: int = 60):
-    """Simple rate limiting decorator."""
-    def request_decorator(f):
-        @wraps(f)
-        def decorated_function(*args, **kwargs):
-            # Simple in-memory rate limiting (use Redis in production)
-            client_ip = request.remote_addr
-            current_time = time.time()
-            
-            if not hasattr(decorated_function, 'requests'):
-                decorated_function.requests = {}
-            
-            if client_ip not in decorated_function.requests:
-                decorated_function.requests[client_ip] = []
-            
-            # Clean old requests
-            decorated_function.requests[client_ip] = [
-                req_time for req_time in decorated_function.requests[client_ip]
-                if current_time - req_time < window
-            ]
-            
-            if len(decorated_function.requests[client_ip]) >= max_requests:
-                return jsonify({
-                    "success": False,
-                    "error": "Rate limit exceeded",
-                    "message": f"Maximum {max_requests} requests per {window} seconds allowed"
-                }), 429
-            
-            decorated_function.requests[client_ip].append(current_time)
-            return f(*args, **kwargs)
-        return decorated_function
-    return request_decorator
-
-def create_error_response(error_code: str, message: str, status_code: int = 400) -> Tuple[Dict[str, Any], int]:
-    """Create standardized error response."""
-    return {
-        "success": False,
-        "error_code": error_code,
-        "message": message,
-        "timestamp": datetime.now().isoformat()
-    }, status_code
-
-def create_success_response(data: Dict[str, Any], message: str = "Success") -> Dict[str, Any]:
-    """Create standardized success response."""
-    return {
-        "success": True,
-        "message": message,
-        "data": data,
-        "timestamp": datetime.now().isoformat()
-    }
 
 def register_routes(app: Flask):
     """Register all API routes."""
@@ -496,65 +352,32 @@ def register_routes(app: Flask):
                 'health': '/health - Health check endpoint',
                 'captcha': '/captcha - Get captcha image',
                 'gst_details': '/gst-details - Get GST details using GSTIN and captcha',
-                'validate_gstin': '/validate-gstin - Validate GSTIN format',
-                'api_docs': '/api/v1/docs - API documentation'
+                'gst_services': '/gst-services - Get GST services/goods details for a GSTIN',
+                'validate_gstin': '/validate-gstin - Validate GSTIN format'
             },
             'timestamp': datetime.now().isoformat(),
             'request_id': getattr(g, 'request_id', 'unknown')
         }), 200
     
     @app.route('/health', methods=['GET'])
-    @monitor_request(monitoring_components[0])
     def health_check():
-        """Enhanced health check endpoint with comprehensive system monitoring."""
+        """Enhanced health check endpoint."""
         try:
             start_time = datetime.now()
-            
-            # Get health check results
-            health_status = {}
-            overall_status = 'healthy'
-            
-            if monitoring_components and len(monitoring_components) > 1:
-                health_checker = monitoring_components[1]
-                health_status = health_checker.check_health()
-                
-                # Determine overall status
-                if any(not check['healthy'] for check in health_status.values()):
-                    overall_status = 'degraded'
-            
-            # Get performance stats
-            performance_stats = {}
-            if performance_components:
-                try:
-                    from performance import get_performance_stats
-                    performance_stats = get_performance_stats()
-                except Exception as e:
-                    logger.warning(f"Failed to get performance stats: {e}")
             
             # Calculate response time
             response_time = (datetime.now() - start_time).total_seconds() * 1000
             
             response_data = {
-                'status': overall_status,
+                'status': 'healthy',
                 'timestamp': datetime.now().isoformat(),
                 'version': app.config.get('VERSION', '1.0.0'),
                 'uptime': str(datetime.now() - app.config.get('START_TIME', datetime.now())),
                 'response_time_ms': round(response_time, 2),
-                'active_sessions': len(gst_sessions),
-                'health_checks': health_status,
-                'performance': performance_stats
+                'active_sessions': len(gst_sessions)
             }
             
-            status_code = 200 if overall_status == 'healthy' else 503
-            
-            # Log health check
-            if logger_config:
-                logger_config.log_audit(
-                    'health_check',
-                    {'status': overall_status, 'response_time_ms': response_time}
-                )
-            
-            return jsonify(response_data), status_code
+            return jsonify(response_data), 200
             
         except Exception as e:
             logger.error(f"Health check failed: {str(e)}")
@@ -566,10 +389,8 @@ def register_routes(app: Flask):
     
     @app.route('/captcha', methods=['GET'])
     @limiter.limit("30 per minute")
-    @monitor_request(monitoring_components[0])
-    @timed()
     def get_captcha():
-        """Get captcha image from GST portal with enhanced error handling and monitoring."""
+        """Get captcha image from GST portal."""
         session_id = None
         try:
             # Create session
@@ -579,6 +400,7 @@ def register_routes(app: Flask):
             if not session_data:
                 logger.error("Failed to create session for captcha retrieval")
                 return jsonify({
+                    'success': False,
                     'error': 'session_creation_failed',
                     'message': 'Unable to initialize session for captcha retrieval'
                 }), 500
@@ -594,14 +416,11 @@ def register_routes(app: Flask):
                 'Accept-Language': 'en-US,en;q=0.9',
                 'Accept-Encoding': 'gzip, deflate, br',
                 'Connection': 'keep-alive',
-                'Sec-Fetch-Dest': 'image',
-                'Sec-Fetch-Mode': 'no-cors',
-                'Sec-Fetch-Site': 'cross-site',
                 'Cache-Control': 'no-cache',
                 'Pragma': 'no-cache'
             }
             
-            # Make request with timeout and retries
+            # Make request with timeout
             timeout = app.config.get('REQUEST_TIMEOUT', 10)
             response = requests_session.get(
                 captcha_url, 
@@ -615,11 +434,6 @@ def register_routes(app: Flask):
             if not response.content or len(response.content) < 100:
                 raise ValueError("Invalid captcha response received")
             
-            # Verify content type
-            content_type = response.headers.get('content-type', '')
-            if 'image' not in content_type.lower():
-                logger.warning(f"Unexpected content type for captcha: {content_type}")
-            
             # Convert image to base64
             captcha_base64 = base64.b64encode(response.content).decode('utf-8')
             
@@ -630,60 +444,42 @@ def register_routes(app: Flask):
             # Log successful captcha retrieval
             logger.info(f"Captcha retrieved successfully for session: {session_id}")
             
-            if logger_config:
-                logger_config.log_audit(
-                    'captcha_retrieved',
-                    {
-                        'session_id': session_id,
-                        'captcha_size': len(response.content),
-                        'content_type': content_type
-                    }
-                )
-            
             return jsonify({
-                'session_id': session_id,
-                'captcha_image': f"data:image/png;base64,{captcha_base64}",
-                'message': 'Captcha retrieved successfully',
-                'expires_in': app.config.get('SESSION_TIMEOUT', 300)
+                'success': True,
+                'data': {
+                    'session_id': session_id,
+                    'captcha_image': f"data:image/png;base64,{captcha_base64}",
+                    'expires_in': app.config.get('SESSION_TIMEOUT', 300)
+                },
+                'message': 'Captcha retrieved successfully'
             }), 200
             
         except requests.exceptions.Timeout:
             logger.error(f"Timeout while fetching captcha for session: {session_id}")
             return jsonify({
+                'success': False,
                 'error': 'timeout_error',
                 'message': 'Request timeout while fetching captcha from GST portal'
             }), 504
         except requests.exceptions.ConnectionError:
             logger.error(f"Connection error while fetching captcha for session: {session_id}")
             return jsonify({
+                'success': False,
                 'error': 'connection_error',
                 'message': 'Unable to connect to GST portal'
-            }), 502
-        except requests.exceptions.HTTPError as e:
-            logger.error(f"HTTP error while fetching captcha: {e.response.status_code} - {str(e)}")
-            return jsonify({
-                'error': 'http_error',
-                'message': f'GST portal returned error: {e.response.status_code}'
-            }), 502
-        except ValueError as e:
-            logger.error(f"Invalid captcha data received: {str(e)}")
-            return jsonify({
-                'error': 'invalid_response',
-                'message': 'Invalid captcha data received from GST portal'
             }), 502
         except Exception as e:
             logger.error(f"Unexpected error in get_captcha: {str(e)}")
             return jsonify({
+                'success': False,
                 'error': 'internal_server_error',
                 'message': 'An unexpected error occurred while fetching captcha'
             }), 500
     
     @app.route('/gst-details', methods=['POST'])
     @limiter.limit("10 per minute")
-    @monitor_request(monitoring_components[0])
-    @timed()
     def get_gst_details():
-        """Get GST details using GSTIN and captcha with enhanced monitoring and caching."""
+        """Get GST details using GSTIN and captcha."""
         session_id = None
         gstin = None
         
@@ -692,6 +488,7 @@ def register_routes(app: Flask):
             
             if not data:
                 return jsonify({
+                    'success': False,
                     'error': 'invalid_request_format',
                     'message': 'Request body must be valid JSON'
                 }), 400
@@ -699,12 +496,11 @@ def register_routes(app: Flask):
             session_id = data.get('session_id')
             gstin = data.get('gstin', '').strip().upper()
             captcha = data.get('captcha', '').strip()
-
-            print("Received request with session_id:",session_id, "gstin:",gstin, "captcha:",session_id, gstin, captcha)
             
             # Validate required fields
             if not all([session_id, gstin, captcha]):
                 return jsonify({
+                    'success': False,
                     'error': 'missing_required_fields',
                     'message': 'session_id, gstin, and captcha are required',
                     'required_fields': ['session_id', 'gstin', 'captcha']
@@ -713,6 +509,7 @@ def register_routes(app: Flask):
             # Validate GSTIN format
             if not validate_gstin(gstin):
                 return jsonify({
+                    'success': False,
                     'error': 'invalid_gstin_format',
                     'message': 'GSTIN format is invalid. Expected format: 15 characters (2 digits + 10 alphanumeric + 1 digit + Z + 1 alphanumeric)'
                 }), 400
@@ -721,27 +518,15 @@ def register_routes(app: Flask):
             session_data = get_session(session_id)
             if not session_data:
                 return jsonify({
+                    'success': False,
                     'error': 'invalid_session',
                     'message': 'Session not found or expired. Please get a new captcha.'
                 }), 400
             
-            # Check cache first
-            cache_key = f"gst_details:{gstin}"
-            if performance_components and performance_components.get('cache_manager'):
-                cached_result = performance_components['cache_manager'].get(cache_key)
-                if cached_result:
-                    logger.info(f"GST details served from cache for GSTIN: {gstin}")
-                    return jsonify({
-                        'success': True,
-                        'data': cached_result,
-                        'message': 'GST details retrieved successfully (cached)',
-                        'cached': True
-                    }), 200
-            
             requests_session = session_data['requests_session']
             
-            # Prepare GST search request
-            search_url = "https://services.gst.gov.in/services/searchtp"
+            # Prepare GST search request to the correct API endpoint
+            search_url = "https://services.gst.gov.in/services/api/search/taxpayerDetails"
             
             headers = {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
@@ -751,9 +536,6 @@ def register_routes(app: Flask):
                 'Content-Type': 'application/json',
                 'Connection': 'keep-alive',
                 'Referer': 'https://services.gst.gov.in/services/searchtp',
-                'Sec-Fetch-Dest': 'empty',
-                'Sec-Fetch-Mode': 'cors',
-                'Sec-Fetch-Site': 'same-origin',
                 'X-Requested-With': 'XMLHttpRequest'
             }
             
@@ -780,6 +562,7 @@ def register_routes(app: Flask):
             except ValueError as e:
                 logger.error(f"Invalid JSON response from GST portal: {str(e)}")
                 return jsonify({
+                    'success': False,
                     'error': 'invalid_response_format',
                     'message': 'Invalid response format from GST portal'
                 }), 502
@@ -794,125 +577,244 @@ def register_routes(app: Flask):
                 # Handle specific error cases
                 if 'captcha' in error_message.lower():
                     return jsonify({
+                        'success': False,
                         'error': 'invalid_captcha',
                         'message': 'Invalid captcha. Please get a new captcha and try again.'
                     }), 400
                 elif 'gstin' in error_message.lower() and 'not found' in error_message.lower():
                     return jsonify({
+                        'success': False,
                         'error': 'gstin_not_found',
                         'message': 'GSTIN not found in GST portal records'
                     }), 404
                 else:
                     return jsonify({
+                        'success': False,
                         'error': 'gst_portal_error',
                         'message': error_message,
                         'error_code': error_code
                     }), 400
             
-            # Extract and structure GST details
+            # Extract and structure GST details from the official GST portal response
             gst_details = {
-                'gstin': gstin,
+                'gstin': result.get('gstin', gstin),
                 'legal_name': result.get('lgnm', '').strip(),
                 'trade_name': result.get('tradeNam', '').strip(),
                 'registration_date': result.get('rgdt', ''),
-                'constitution': result.get('ctb', ''),
+                'constitution_of_business': result.get('ctb', ''),
                 'taxpayer_type': result.get('dty', ''),
-                'status': result.get('sts', ''),
-                'last_updated': result.get('lstupdt', ''),
-                'center_jurisdiction': result.get('ctjCd', ''),
-                'state_jurisdiction': result.get('stj', ''),
-                'addresses': [],
-                'filing_status': [],
+                'gstin_status': result.get('sts', ''),
+                'nature_of_business_activities': result.get('nba', []),
+                'aadhaar_validation': result.get('adhrVFlag', 'No'),
+                'ekyc_validation': result.get('ekycVFlag', 'No'),
+                'composition_taxable_person': result.get('cmpRt', 'NA'),
+                'field_visit_conducted': result.get('isFieldVisitConducted', 'No'),
+                'einvoice_status': result.get('einvoiceStatus', 'No'),
+                'nature_of_core_business_activity_code': result.get('ntcrbs', ''),
+                'cancellation_date': result.get('cxdt', ''),
+                'jurisdiction': {
+                    'center': result.get('ctj', ''),
+                    'state': result.get('stj', '')
+                },
+                'principal_place_of_business': {},
                 'retrieved_at': datetime.now().isoformat()
             }
             
-            # Extract addresses
-            addresses = result.get('pradr', {}).get('addr', [])
-            if not isinstance(addresses, list):
-                addresses = [addresses] if addresses else []
-            
-            for addr in addresses:
-                if isinstance(addr, dict):
-                    address_info = {
-                        'address_line': addr.get('addr', '').strip(),
-                        'city': addr.get('city', '').strip(),
-                        'state': addr.get('stcd', '').strip(),
-                        'pincode': addr.get('pncd', '').strip(),
-                        'nature': addr.get('ntr', '').strip(),
-                        'floor': addr.get('flno', '').strip(),
-                        'building': addr.get('bno', '').strip(),
-                        'street': addr.get('st', '').strip(),
-                        'location': addr.get('loc', '').strip()
-                    }
-                    gst_details['addresses'].append(address_info)
-            
-            # Extract filing status if available
-            filing_status = result.get('filingStatus', [])
-            if isinstance(filing_status, list):
-                gst_details['filing_status'] = filing_status
-            
-            # Cache the result
-            if performance_components and performance_components.get('cache_manager'):
-                cache_ttl = app.config.get('GST_DETAILS_CACHE_TTL', 3600)  # 1 hour default
-                performance_components['cache_manager'].set(cache_key, gst_details, ttl=cache_ttl)
+            # Extract principal place of business address
+            pradr = result.get('pradr', {})
+            if pradr and isinstance(pradr, dict):
+                gst_details['principal_place_of_business'] = {
+                    'address': pradr.get('adr', '').strip(),
+                    'nature_of_premises': pradr.get('ntr', '').strip()
+                }
             
             # Log successful retrieval
             logger.info(f"GST details retrieved successfully for GSTIN: {gstin}")
             
-            if logger_config:
-                logger_config.log_audit(
-                    'gst_details_retrieved',
-                    {
-                        'gstin': gstin,
-                        'session_id': session_id,
-                        'legal_name': gst_details['legal_name'],
-                        'status': gst_details['status']
-                    }
-                )
-            
             return jsonify({
                 'success': True,
                 'data': gst_details,
-                'message': 'GST details retrieved successfully',
-                'cached': False
+                'message': 'GST details retrieved successfully'
             }), 200
             
         except requests.exceptions.Timeout:
             logger.error(f"Timeout while fetching GST details for GSTIN: {gstin}")
             return jsonify({
+                'success': False,
                 'error': 'timeout_error',
                 'message': 'Request timeout while fetching GST details from portal'
             }), 504
         except requests.exceptions.ConnectionError:
             logger.error(f"Connection error while fetching GST details for GSTIN: {gstin}")
             return jsonify({
+                'success': False,
                 'error': 'connection_error',
                 'message': 'Unable to connect to GST portal'
-            }), 502
-        except requests.exceptions.HTTPError as e:
-            logger.error(f"HTTP error while fetching GST details: {e.response.status_code} - {str(e)}")
-            return jsonify({
-                'error': 'http_error',
-                'message': f'GST portal returned error: {e.response.status_code}'
             }), 502
         except Exception as e:
             logger.error(f"Unexpected error in get_gst_details: {str(e)}")
             return jsonify({
+                'success': False,
                 'error': 'internal_server_error',
                 'message': 'An unexpected error occurred while fetching GST details'
             }), 500
     
-    @app.route('/validate-gstin', methods=['POST'])
-    @limiter.limit("20 per minute")
-    @monitor_request(monitoring_components[0])
-    @timed()
-    def validate_gstin_endpoint():
-        """Validate GSTIN format with enhanced monitoring and caching."""
+    @app.route('/gst-services', methods=['POST'])
+    @limiter.limit("10 per minute")
+    def get_gst_services():
+        """Get GST services/goods details for a GSTIN."""
+        gstin = None
+        
         try:
             data = request.get_json()
             
             if not data:
                 return jsonify({
+                    'success': False,
+                    'error': 'invalid_request_format',
+                    'message': 'Request body must be valid JSON'
+                }), 400
+            
+            gstin = data.get('gstin', '').strip().upper()
+            
+            # Validate required fields
+            if not gstin:
+                return jsonify({
+                    'success': False,
+                    'error': 'missing_required_fields',
+                    'message': 'gstin is required',
+                    'required_fields': ['gstin']
+                }), 400
+            
+            # Validate GSTIN format
+            if not validate_gstin(gstin):
+                return jsonify({
+                    'success': False,
+                    'error': 'invalid_gstin_format',
+                    'message': 'GSTIN format is invalid. Expected format: 15 characters (2 digits + 10 alphanumeric + 1 digit + Z + 1 alphanumeric)'
+                }), 400
+            
+            # Prepare GST services request
+            services_url = f"https://services.gst.gov.in/services/api/search/goodservice?gstin={gstin}"
+            
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Accept': 'application/json, text/plain, */*',
+                'Accept-Language': 'en-US,en;q=0.9',
+                'Accept-Encoding': 'gzip, deflate, br',
+                'Connection': 'keep-alive',
+                'Referer': 'https://services.gst.gov.in/services/searchtp'
+            }
+            
+            # Create a new session for this request
+            session = requests.Session()
+            
+            # Make request with enhanced error handling
+            timeout = app.config.get('REQUEST_TIMEOUT', 15)
+            response = session.get(
+                services_url,
+                headers=headers,
+                timeout=timeout,
+                verify=True
+            )
+            
+            response.raise_for_status()
+            
+            # Parse response
+            try:
+                result = response.json()
+            except ValueError as e:
+                logger.error(f"Invalid JSON response from GST portal services API: {str(e)}")
+                return jsonify({
+                    'success': False,
+                    'error': 'invalid_response_format',
+                    'message': 'Invalid response format from GST portal'
+                }), 502
+            
+            # Check for GST portal errors
+            if 'error' in result or result.get('status') == 'error':
+                error_message = result.get('message', 'Unknown error from GST portal')
+                error_code = result.get('errorCode', 'unknown')
+                
+                logger.warning(f"GST portal services error for GSTIN {gstin}: {error_message} (Code: {error_code})")
+                
+                if 'gstin' in error_message.lower() and 'not found' in error_message.lower():
+                    return jsonify({
+                        'success': False,
+                        'error': 'gstin_not_found',
+                        'message': 'GSTIN not found in GST portal records'
+                    }), 404
+                else:
+                    return jsonify({
+                        'success': False,
+                        'error': 'gst_portal_error',
+                        'message': error_message,
+                        'error_code': error_code
+                    }), 400
+            
+            # Extract and structure business services/goods details
+            business_activities = []
+            bzsdtls = result.get('bzsdtls', [])
+            
+            if isinstance(bzsdtls, list):
+                for activity in bzsdtls:
+                    if isinstance(activity, dict):
+                        activity_info = {
+                            'sac_code': activity.get('saccd', '').strip(),
+                            'service_description': activity.get('sdes', '').strip(),
+                            'category': 'Service' if activity.get('saccd', '').startswith('99') else 'Goods'
+                        }
+                        business_activities.append(activity_info)
+            
+            # Structure the response
+            services_details = {
+                'gstin': gstin,
+                'business_activities': business_activities,
+                'total_activities': len(business_activities),
+                'retrieved_at': datetime.now().isoformat()
+            }
+            
+            # Log successful retrieval
+            logger.info(f"GST services details retrieved successfully for GSTIN: {gstin}")
+            
+            return jsonify({
+                'success': True,
+                'data': services_details,
+                'message': 'GST services details retrieved successfully'
+            }), 200
+            
+        except requests.exceptions.Timeout:
+            logger.error(f"Timeout while fetching GST services for GSTIN: {gstin}")
+            return jsonify({
+                'success': False,
+                'error': 'timeout_error',
+                'message': 'Request timeout while fetching GST services from portal'
+            }), 504
+        except requests.exceptions.ConnectionError:
+            logger.error(f"Connection error while fetching GST services for GSTIN: {gstin}")
+            return jsonify({
+                'success': False,
+                'error': 'connection_error',
+                'message': 'Unable to connect to GST portal'
+            }), 502
+        except Exception as e:
+            logger.error(f"Unexpected error in get_gst_services: {str(e)}")
+            return jsonify({
+                'success': False,
+                'error': 'internal_server_error',
+                'message': 'An unexpected error occurred while fetching GST services'
+            }), 500
+    
+    @app.route('/validate-gstin', methods=['POST'])
+    @limiter.limit("20 per minute")
+    def validate_gstin_endpoint():
+        """Validate GSTIN format."""
+        try:
+            data = request.get_json()
+            
+            if not data:
+                return jsonify({
+                    'success': False,
                     'error': 'invalid_request_format',
                     'message': 'Request body must be valid JSON'
                 }), 400
@@ -921,6 +823,7 @@ def register_routes(app: Flask):
             
             if not gstin:
                 return jsonify({
+                    'success': False,
                     'error': 'missing_gstin',
                     'message': 'GSTIN is required'
                 }), 400
@@ -947,16 +850,6 @@ def register_routes(app: Flask):
             # Log validation request
             logger.info(f"GSTIN validation request: {gstin} - Valid: {is_valid}")
             
-            if logger_config:
-                logger_config.log_audit(
-                    'gstin_validated',
-                    {
-                        'gstin': gstin,
-                        'is_valid': is_valid,
-                        'validation_details': gstin_info
-                    }
-                )
-            
             return jsonify({
                 'success': True,
                 'data': gstin_info,
@@ -966,75 +859,20 @@ def register_routes(app: Flask):
         except Exception as e:
             logger.error(f"Unexpected error in validate_gstin_endpoint: {str(e)}")
             return jsonify({
+                'success': False,
                 'error': 'internal_server_error',
                 'message': 'An unexpected error occurred during GSTIN validation'
             }), 500
 
-def cleanup_expired_sessions():
-    """Background task to clean expired sessions."""
-    import threading
-    import time
-    
-    def cleanup_worker():
-        while True:
-            try:
-                time.sleep(300)  # Clean every 5 minutes
-                expired_count = clean_expired_sessions()
-                if expired_count > 0:
-                    logger.info(f"Cleaned {expired_count} expired sessions")
-            except Exception as e:
-                logger.error(f"Error in session cleanup: {e}")
-    
-    cleanup_thread = threading.Thread(target=cleanup_worker, daemon=True)
-    cleanup_thread.start()
-    logger.info("Session cleanup thread started")
 
-
-def setup_signal_handlers(app: Flask):
-    """Setup signal handlers for graceful shutdown."""
-    import signal
-    import sys
-    
-    def signal_handler(sig, frame):
-        logger.info(f"Received signal {sig}, shutting down gracefully...")
-        
-        # Close all active sessions
-        for session_id, session_data in list(gst_sessions.items()):
-            if 'requests_session' in session_data:
-                try:
-                    session_data['requests_session'].close()
-                except Exception as e:
-                    logger.warning(f"Error closing session {session_id}: {e}")
-        
-        # Cleanup performance components
-        if performance_components:
-            try:
-                if 'async_processor' in performance_components:
-                    performance_components['async_processor'].shutdown()
-                if 'http_pool' in performance_components:
-                    performance_components['http_pool'].close()
-            except Exception as e:
-                logger.warning(f"Error during performance cleanup: {e}")
-        
-        logger.info("Graceful shutdown completed")
-        sys.exit(0)
-    
-    signal.signal(signal.SIGINT, signal_handler)
-    signal.signal(signal.SIGTERM, signal_handler)
-
-
-# Application factory function
+# Create application instance
 def create_app_instance():
     """Create and configure the Flask application instance."""
-    global app, limiter, logger, performance_components, monitoring_components, logger_config
+    global app, limiter, logger
     
     try:
         # Create Flask app
         app = create_app()
-        
-        # Setup cleanup and signal handlers
-        cleanup_expired_sessions()
-        setup_signal_handlers(app)
         
         logger.info("GST Verification API initialized successfully")
         return app

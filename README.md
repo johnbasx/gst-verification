@@ -46,8 +46,8 @@ A robust, professional, and secure REST API for fetching GST (Goods and Services
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/GST-Verification-API.git
-   cd GST-Verification-API
+   git clone https://github.com/johnbasx/gst-verification.git
+   cd gst-verification
    ```
 
 2. **Create and activate virtual environment:**

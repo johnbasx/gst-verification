@@ -1,6 +1,7 @@
 # Core Flask dependencies
 Flask==2.3.3
 flask-cors==4.0.0
+flask-limiter==3.5.0
 
 # HTTP requests
 requests==2.31.0
@@ -25,3 +26,6 @@ Werkzeug==2.3.7
 
 # Production server (optional)
 gunicorn==21.2.0
+
+# Additional dependencies for monitoring and performance
+redis==5.0.1

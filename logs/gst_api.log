@@ -294,3 +294,45 @@
 {"timestamp": "2025-08-11T17:46:25.223796Z", "level": "INFO", "logger": "gst_api.access", "message": "POST /gst-details - 502 - 0.297s - IP: 127.0.0.1", "module": "logging_config", "function": "log_request", "line": 430, "process_id": 63123, "thread_id": 123145420468224, "extra": {"taskName": null, "method": "POST", "path": "/gst-details", "status_code": 502, "duration": 0.29737329483032227, "user_id": null, "ip_address": "127.0.0.1", "request_type": "http_request"}}
 {"timestamp": "2025-08-11T17:47:00.483869Z", "level": "INFO", "logger": "gst_api", "message": "Received signal 2, shutting down gracefully...", "module": "app", "function": "signal_handler", "line": 997, "process_id": 63123, "thread_id": 140704568208320, "extra": {"taskName": null}}
 {"timestamp": "2025-08-11T17:47:00.492608Z", "level": "INFO", "logger": "gst_api", "message": "Graceful shutdown completed", "module": "app", "function": "signal_handler", "line": 1017, "process_id": 63123, "thread_id": 140704568208320, "extra": {"taskName": null}}
+2025-08-12 13:34:24,264 - gst_api - INFO - GST Verification API initialized in unknown mode
+2025-08-12 13:34:24,265 - gst_api - INFO - GST Verification API initialized successfully
+2025-08-12 13:34:24,265 - gst_api - INFO - Starting GST Verification API on port 5001 (debug=False)
+2025-08-12 13:34:24,294 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.29.173:5001
+2025-08-12 13:34:24,294 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-08-12 13:34:40,328 - gst_api - INFO - Request started: GET /
+2025-08-12 13:34:40,329 - gst_api - INFO - Request completed: GET / - 200 - 0.001s
+2025-08-12 13:34:40,329 - werkzeug - INFO - 127.0.0.1 - - [12/Aug/2025 13:34:40] "GET / HTTP/1.1" 200 -
+2025-08-12 13:34:42,158 - gst_api - INFO - Request started: GET /favicon.ico
+2025-08-12 13:34:42,159 - gst_api - WARNING - Not found: /favicon.ico
+2025-08-12 13:34:42,159 - gst_api - INFO - Request completed: GET /favicon.ico - 404 - 0.001s
+2025-08-12 13:34:42,159 - werkzeug - INFO - 127.0.0.1 - - [12/Aug/2025 13:34:42] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-08-12 13:34:48,039 - gst_api - INFO - Request started: GET /gst-details - Get GST details using GSTIN and captcha
+2025-08-12 13:34:48,039 - gst_api - WARNING - Not found: /gst-details - Get GST details using GSTIN and captcha
+2025-08-12 13:34:48,039 - gst_api - INFO - Request completed: GET /gst-details - Get GST details using GSTIN and captcha - 404 - 0.001s
+2025-08-12 13:34:48,040 - werkzeug - INFO - 127.0.0.1 - - [12/Aug/2025 13:34:48] "[33mGET /gst-details%20-%20Get%20GST%20details%20using%20GSTIN%20and%20captcha HTTP/1.1[0m" 404 -
+2025-08-12 13:34:54,651 - gst_api - INFO - Request started: GET /gst-details
+2025-08-12 13:34:54,652 - gst_api - INFO - Request completed: GET /gst-details - 405 - 0.001s
+2025-08-12 13:34:54,652 - werkzeug - INFO - 127.0.0.1 - - [12/Aug/2025 13:34:54] "[31m[1mGET /gst-details HTTP/1.1[0m" 405 -
+2025-08-12 13:35:02,188 - gst_api - INFO - Request started: GET /
+2025-08-12 13:35:02,188 - gst_api - INFO - Request completed: GET / - 200 - 0.000s
+2025-08-12 13:35:02,189 - werkzeug - INFO - 127.0.0.1 - - [12/Aug/2025 13:35:02] "GET / HTTP/1.1" 200 -
+2025-08-12 13:35:09,381 - gst_api - INFO - Request started: GET /captcha
+2025-08-12 13:35:09,383 - gst_api - INFO - New session created: 2dc3a3f2-6abf-4eba-a1c7-e5126dc0de37
+2025-08-12 13:35:09,733 - gst_api - INFO - Captcha retrieved successfully for session: 2dc3a3f2-6abf-4eba-a1c7-e5126dc0de37
+2025-08-12 13:35:09,734 - gst_api - INFO - Request completed: GET /captcha - 200 - 0.352s
+2025-08-12 13:35:09,734 - werkzeug - INFO - 127.0.0.1 - - [12/Aug/2025 13:35:09] "GET /captcha HTTP/1.1" 200 -
+2025-08-12 13:36:35,348 - gst_api - INFO - Request started: POST /gst-details
+2025-08-12 13:36:35,677 - gst_api - INFO - GST details retrieved successfully for GSTIN: 24AAACC1206D1ZM
+2025-08-12 13:36:35,678 - gst_api - INFO - Request completed: POST /gst-details - 200 - 0.331s
+2025-08-12 13:36:35,679 - werkzeug - INFO - 127.0.0.1 - - [12/Aug/2025 13:36:35] "POST /gst-details HTTP/1.1" 200 -
+2025-08-12 13:38:00,064 - gst_api - INFO - Request started: POST /gst-services
+2025-08-12 13:38:00,071 - gst_api - ERROR - Unexpected error in get_gst_services: 'str' object has no attribute 'get'
+2025-08-12 13:38:00,073 - gst_api - INFO - Request completed: POST /gst-services - 500 - 0.009s
+2025-08-12 13:38:00,075 - werkzeug - INFO - 127.0.0.1 - - [12/Aug/2025 13:38:00] "[35m[1mPOST /gst-services HTTP/1.1[0m" 500 -
+2025-08-12 13:38:07,275 - gst_api - INFO - Request started: POST /gst-services
+2025-08-12 13:38:07,585 - gst_api - INFO - GST services details retrieved successfully for GSTIN: 24AAACC1206D1ZM
+2025-08-12 13:38:07,587 - gst_api - INFO - Request completed: POST /gst-services - 200 - 0.311s
+2025-08-12 13:38:07,587 - werkzeug - INFO - 127.0.0.1 - - [12/Aug/2025 13:38:07] "POST /gst-services HTTP/1.1" 200 -

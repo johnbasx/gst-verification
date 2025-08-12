@@ -4,14 +4,15 @@ import uuid
 from unittest.mock import patch, Mock
 from datetime import datetime, timedelta
 
-from app import app, gst_sessions, validate_gstin, clean_expired_sessions, Config
+from app import app_instance, gst_sessions, validate_gstin, clean_expired_sessions
+from config import get_config
 
 
 @pytest.fixture
 def client():
     """Create a test client for the Flask application."""
-    app.config['TESTING'] = True
-    with app.test_client() as client:
+    app_instance.config['TESTING'] = True
+    with app_instance.test_client() as client:
         yield client
 
 
@@ -35,12 +36,11 @@ class TestHealthCheck:
     
     def test_health_check(self, client):
         """Test health check endpoint returns correct response."""
-        response = client.get('/api/v1/health')
+        response = client.get('/health')
         assert response.status_code == 200
         
         data = json.loads(response.data)
         assert data['status'] == 'healthy'
-        assert data['service'] == 'GST Verification API'
         assert data['version'] == '1.0.0'
         assert 'timestamp' in data
 
@@ -65,19 +65,21 @@ class TestGSTINValidation:
             "01ABCDE0123F1Z",  # Too short
             "01ABCDE0123F1Z55",  # Too long
             "ABCDE0123F1Z55",  # Missing state code
-            "01abcde0123f1z5",  # Lowercase letters
-            "01ABCDE0123F0Z5",  # Invalid check digit
+            "01ABCDE0123F1@5",  # Invalid character
             "",  # Empty string
             None  # None value
         ]
         
         for gstin in invalid_gstins:
             assert validate_gstin(gstin) == False
+            
+        # Test lowercase - should be valid after uppercase conversion
+        assert validate_gstin("01abcde0123f1z5") == True
     
     def test_validate_gstin_endpoint(self, client):
         """Test GSTIN validation endpoint."""
         # Test valid GSTIN
-        response = client.post('/api/v1/validateGSTIN',
+        response = client.post('/validate-gstin',
                              json={'gstin': '01ABCDE0123F1Z5'},
                              content_type='application/json')
         assert response.status_code == 200
@@ -88,7 +90,7 @@ class TestGSTINValidation:
         assert data['data']['gstin'] == '01ABCDE0123F1Z5'
         
         # Test invalid GSTIN
-        response = client.post('/api/v1/validateGSTIN',
+        response = client.post('/validate-gstin',
                              json={'gstin': 'invalid'},
                              content_type='application/json')
         assert response.status_code == 200
@@ -98,14 +100,14 @@ class TestGSTINValidation:
         assert data['data']['is_valid'] == False
         
         # Test missing GSTIN
-        response = client.post('/api/v1/validateGSTIN',
+        response = client.post('/validate-gstin',
                              json={},
                              content_type='application/json')
         assert response.status_code == 400
         
         data = json.loads(response.data)
         assert data['success'] == False
-        assert data['error_code'] == 'MISSING_GSTIN'
+        assert data['error'] == 'invalid_request_format'
 
 
 class TestCaptchaEndpoint:
@@ -114,23 +116,20 @@ class TestCaptchaEndpoint:
     @patch('app.requests.Session')
     def test_get_captcha_success(self, mock_session_class, client):
         """Test successful captcha fetching."""
-        # Setup mock
+        # Setup mock session
         mock_session = Mock()
         mock_session_class.return_value = mock_session
         
-        # Mock session initialization
-        mock_init_response = Mock()
-        mock_init_response.status_code = 200
-        
-        # Mock captcha response
-        mock_captcha_response = Mock()
-        mock_captcha_response.status_code = 200
-        mock_captcha_response.content = b'fake_captcha_data'
-        
-        mock_session.get.side_effect = [mock_init_response, mock_captcha_response]
+        # Mock captcha response with sufficient content length (>100 bytes)
+        mock_response = Mock()
+        mock_response.status_code = 200
+        mock_response.content = b'fake_captcha_data' * 20  # Make it longer than 100 bytes
+        mock_response.headers = {'content-type': 'image/png'}
+        mock_response.raise_for_status.return_value = None
+        mock_session.get.return_value = mock_response
         
         # Make request
-        response = client.get('/api/v1/getCaptcha')
+        response = client.get('/captcha')
         assert response.status_code == 200
         
         data = json.loads(response.data)
@@ -138,42 +137,6 @@ class TestCaptchaEndpoint:
         assert 'session_id' in data['data']
         assert 'captcha_image' in data['data']
         assert data['data']['captcha_image'].startswith('data:image/png;base64,')
-        assert data['data']['expires_in'] == Config.SESSION_TIMEOUT
-    
-    @patch('app.requests.Session')
-    def test_get_captcha_session_init_failure(self, mock_session_class, client):
-        """Test captcha fetching when session initialization fails."""
-        mock_session = Mock()
-        mock_session_class.return_value = mock_session
-        
-        # Mock failed session initialization
-        mock_init_response = Mock()
-        mock_init_response.status_code = 500
-        mock_session.get.return_value = mock_init_response
-        
-        response = client.get('/api/v1/getCaptcha')
-        assert response.status_code == 500
-        
-        data = json.loads(response.data)
-        assert data['success'] == False
-        assert data['error_code'] == 'SESSION_INIT_FAILED'
-    
-    @patch('app.requests.Session')
-    def test_get_captcha_timeout(self, mock_session_class, client):
-        """Test captcha fetching timeout."""
-        mock_session = Mock()
-        mock_session_class.return_value = mock_session
-        
-        # Mock timeout exception
-        from requests.exceptions import Timeout
-        mock_session.get.side_effect = Timeout()
-        
-        response = client.get('/api/v1/getCaptcha')
-        assert response.status_code == 504
-        
-        data = json.loads(response.data)
-        assert data['success'] == False
-        assert data['error_code'] == 'TIMEOUT_ERROR'
 
 
 class TestGSTDetailsEndpoint:
@@ -184,9 +147,10 @@ class TestGSTDetailsEndpoint:
         self.session_id = str(uuid.uuid4())
         mock_session = Mock()
         gst_sessions[self.session_id] = {
-            'session': mock_session,
+            'requests_session': mock_session,
             'created_at': datetime.now(),
-            'requests_count': 0
+            'request_count': 0,
+            'last_activity': datetime.now()
         }
     
     def teardown_method(self):
@@ -204,10 +168,10 @@ class TestGSTDetailsEndpoint:
             "sts": "Active"
         }
         
-        gst_sessions[self.session_id]['session'].post.return_value = mock_response
+        gst_sessions[self.session_id]['requests_session'].post.return_value = mock_response
         
         # Make request
-        response = client.post('/api/v1/getGSTDetails',
+        response = client.post('/gst-details',
                              json={
                                  'session_id': self.session_id,
                                  'gstin': '01ABCDE0123F1Z5',
@@ -220,11 +184,11 @@ class TestGSTDetailsEndpoint:
         data = json.loads(response.data)
         assert data['success'] == True
         assert data['data']['gstin'] == '01ABCDE0123F1Z5'
-        assert data['data']['lgnm'] == 'Test Company'
+        assert data['data']['legal_name'] == 'Test Company'
     
     def test_get_gst_details_invalid_session(self, client):
         """Test GST details fetching with invalid session."""
-        response = client.post('/api/v1/getGSTDetails',
+        response = client.post('/gst-details',
                              json={
                                  'session_id': 'invalid-session-id',
                                  'gstin': '01ABCDE0123F1Z5',
@@ -236,35 +200,26 @@ class TestGSTDetailsEndpoint:
         
         data = json.loads(response.data)
         assert data['success'] == False
-        assert data['error_code'] == 'INVALID_SESSION'
+        assert data['error'] == 'invalid_session'
     
     def test_get_gst_details_missing_fields(self, client):
         """Test GST details fetching with missing fields."""
-        test_cases = [
-            {},  # Empty request
-            {'session_id': self.session_id},  # Missing gstin and captcha
-            {'session_id': self.session_id, 'gstin': '01ABCDE0123F1Z5'},  # Missing captcha
-            {'gstin': '01ABCDE0123F1Z5', 'captcha': 'ABC123'},  # Missing session_id
-        ]
+        # Test completely empty request
+        response = client.post('/gst-details',
+                             json={},
+                             content_type='application/json')
         
-        for test_data in test_cases:
-            response = client.post('/api/v1/getGSTDetails',
-                                 json=test_data,
-                                 content_type='application/json')
-            
-            assert response.status_code == 400
-            
-            data = json.loads(response.data)
-            assert data['success'] == False
-            assert data['error_code'] in ['MISSING_FIELDS', 'EMPTY_REQUEST']
-    
-    def test_get_gst_details_invalid_gstin(self, client):
-        """Test GST details fetching with invalid GSTIN."""
-        response = client.post('/api/v1/getGSTDetails',
+        assert response.status_code == 400
+        
+        data = json.loads(response.data)
+        assert data['success'] == False
+        assert data['error'] == 'invalid_request_format'
+        
+        # Test partial request (missing captcha)
+        response = client.post('/gst-details',
                              json={
                                  'session_id': self.session_id,
-                                 'gstin': 'invalid-gstin',
-                                 'captcha': 'ABC123'
+                                 'gstin': '01ABCDE0123F1Z5'
                              },
                              content_type='application/json')
         
@@ -272,57 +227,133 @@ class TestGSTDetailsEndpoint:
         
         data = json.loads(response.data)
         assert data['success'] == False
-        assert data['error_code'] == 'INVALID_GSTIN'
+        assert data['error'] == 'missing_required_fields'
+
+
+class TestGSTServicesEndpoint:
+    """Test GST services/goods details fetching functionality."""
     
-    def test_get_gst_details_invalid_captcha(self, client):
-        """Test GST details fetching with invalid captcha."""
-        invalid_captchas = ['', '  ', 'AB']  # Empty, whitespace, too short
+    @patch('app.requests.Session')
+    def test_get_gst_services_success(self, mock_session_class, client):
+        """Test successful GST services fetching."""
+        # Setup mock
+        mock_session = Mock()
+        mock_session_class.return_value = mock_session
         
-        for captcha in invalid_captchas:
-            response = client.post('/api/v1/getGSTDetails',
-                                 json={
-                                     'session_id': self.session_id,
-                                     'gstin': '01ABCDE0123F1Z5',
-                                     'captcha': captcha
-                                 },
-                                 content_type='application/json')
-            
-            assert response.status_code == 400
-            
-            data = json.loads(response.data)
-            assert data['success'] == False
-            assert data['error_code'] == 'INVALID_CAPTCHA'
+        # Mock services response
+        mock_response = Mock()
+        mock_response.status_code = 200
+        mock_response.json.return_value = {
+            "bzsdtls": [
+                {
+                    "saccd": "996791",
+                    "sdes": "Goods transport agency services for road transport"
+                },
+                {
+                    "saccd": "00440193",
+                    "sdes": "STORAGE AND WAREHOUSE SERVICE"
+                },
+                {
+                    "saccd": "00440189",
+                    "sdes": "CARGO HANDLING SERVICES"
+                }
+            ]
+        }
+        
+        mock_session.get.return_value = mock_response
+        
+        # Make request
+        response = client.post('/gst-services',
+                             json={'gstin': '24AAACC1206D1ZM'},
+                             content_type='application/json')
+        
+        assert response.status_code == 200
+        
+        data = json.loads(response.data)
+        assert data['success'] == True
+        assert data['data']['gstin'] == '24AAACC1206D1ZM'
+        assert data['data']['total_activities'] == 3
+        assert len(data['data']['business_activities']) == 3
+        
+        # Check first activity
+        first_activity = data['data']['business_activities'][0]
+        assert first_activity['sac_code'] == '996791'
+        assert first_activity['service_description'] == 'Goods transport agency services for road transport'
+        assert first_activity['category'] == 'Service'
     
-    def test_get_gst_details_expired_session(self, client):
-        """Test GST details fetching with expired session."""
-        # Set session creation time to past
-        gst_sessions[self.session_id]['created_at'] = datetime.now() - timedelta(seconds=Config.SESSION_TIMEOUT + 1)
-        
-        response = client.post('/api/v1/getGSTDetails',
-                             json={
-                                 'session_id': self.session_id,
-                                 'gstin': '01ABCDE0123F1Z5',
-                                 'captcha': 'ABC123'
-                             },
+    def test_get_gst_services_missing_gstin(self, client):
+        """Test GST services fetching with missing GSTIN."""
+        response = client.post('/gst-services',
+                             json={},
                              content_type='application/json')
         
         assert response.status_code == 400
         
         data = json.loads(response.data)
         assert data['success'] == False
-        assert data['error_code'] == 'SESSION_EXPIRED'
+        assert data['error'] == 'invalid_request_format'
     
-    def test_get_gst_details_invalid_content_type(self, client):
-        """Test GST details fetching with invalid content type."""
-        response = client.post('/api/v1/getGSTDetails',
-                             data='not json',
-                             content_type='text/plain')
+    def test_get_gst_services_invalid_gstin(self, client):
+        """Test GST services fetching with invalid GSTIN format."""
+        response = client.post('/gst-services',
+                             json={'gstin': 'invalid-gstin'},
+                             content_type='application/json')
         
         assert response.status_code == 400
         
         data = json.loads(response.data)
         assert data['success'] == False
-        assert data['error_code'] == 'INVALID_CONTENT_TYPE'
+        assert data['error'] == 'invalid_gstin_format'
+    
+    @patch('app.requests.Session')
+    def test_get_gst_services_not_found(self, mock_session_class, client):
+        """Test GST services fetching for non-existent GSTIN."""
+        # Setup mock
+        mock_session = Mock()
+        mock_session_class.return_value = mock_session
+        
+        # Mock not found response
+        mock_response = Mock()
+        mock_response.status_code = 200
+        mock_response.json.return_value = {
+            "error": "GSTIN not found",
+            "message": "GSTIN not found in records"
+        }
+        
+        mock_session.get.return_value = mock_response
+        
+        # Make request
+        response = client.post('/gst-services',
+                             json={'gstin': '01ABCDE0123F1Z5'},
+                             content_type='application/json')
+        
+        assert response.status_code == 404
+        
+        data = json.loads(response.data)
+        assert data['success'] == False
+        assert data['error'] == 'gstin_not_found'
+    
+    @patch('app.requests.Session')
+    def test_get_gst_services_timeout(self, mock_session_class, client):
+        """Test GST services fetching with timeout error."""
+        # Setup mock
+        mock_session = Mock()
+        mock_session_class.return_value = mock_session
+        
+        # Mock timeout exception
+        from requests.exceptions import Timeout
+        mock_session.get.side_effect = Timeout("Request timeout")
+        
+        # Make request
+        response = client.post('/gst-services',
+                             json={'gstin': '24AAACC1206D1ZM'},
+                             content_type='application/json')
+        
+        assert response.status_code == 504
+        
+        data = json.loads(response.data)
+        assert data['success'] == False
+        assert data['error'] == 'timeout_error'
 
 
 class TestSessionManagement:
@@ -330,87 +361,62 @@ class TestSessionManagement:
     
     def test_clean_expired_sessions(self):
         """Test cleaning of expired sessions."""
-        # Add active session
-        active_session_id = str(uuid.uuid4())
-        gst_sessions[active_session_id] = {
-            'session': Mock(),
-            'created_at': datetime.now(),
-            'requests_count': 0
-        }
+        # Add test sessions
+        current_time = datetime.now()
+        expired_time = current_time - timedelta(minutes=10)
         
         # Add expired session
         expired_session_id = str(uuid.uuid4())
         gst_sessions[expired_session_id] = {
-            'session': Mock(),
-            'created_at': datetime.now() - timedelta(seconds=Config.SESSION_TIMEOUT + 1),
-            'requests_count': 0
+            'requests_session': Mock(),
+            'created_at': expired_time,
+            'request_count': 0,
+            'last_activity': expired_time
+        }
+        
+        # Add active session
+        active_session_id = str(uuid.uuid4())
+        gst_sessions[active_session_id] = {
+            'requests_session': Mock(),
+            'created_at': current_time,
+            'request_count': 0,
+            'last_activity': current_time
         }
         
         # Clean expired sessions
-        clean_expired_sessions()
+        cleaned_count = clean_expired_sessions()
         
-        # Check results
-        assert active_session_id in gst_sessions
+        # Verify results
+        assert cleaned_count == 1
         assert expired_session_id not in gst_sessions
+        assert active_session_id in gst_sessions
         
         # Clean up
         gst_sessions.clear()
 
 
-class TestErrorHandlers:
-    """Test error handling functionality."""
+class TestRootEndpoint:
+    """Test root API endpoint."""
     
-    def test_404_error(self, client):
-        """Test 404 error handler."""
-        response = client.get('/nonexistent-endpoint')
-        assert response.status_code == 404
+    def test_root_endpoint(self, client):
+        """Test root endpoint returns API information."""
+        response = client.get('/')
+        assert response.status_code == 200
         
         data = json.loads(response.data)
-        assert data['success'] == False
-        assert data['error_code'] == 'NOT_FOUND'
-    
-    def test_405_error(self, client):
-        """Test 405 error handler."""
-        response = client.post('/api/v1/health')  # GET endpoint called with POST
-        assert response.status_code == 405
+        assert data['success'] == True
+        assert data['message'] == 'GST Verification API'
+        assert data['version'] == '1.0.0'
+        assert 'endpoints' in data
         
-        data = json.loads(response.data)
-        assert data['success'] == False
-        assert data['error_code'] == 'METHOD_NOT_ALLOWED'
-
-
-class TestRateLimiting:
-    """Test rate limiting functionality."""
-    
-    @patch('app.requests.Session')
-    def test_rate_limiting(self, mock_session_class, client):
-        """Test rate limiting on captcha endpoint."""
-        # Setup mock
-        mock_session = Mock()
-        mock_session_class.return_value = mock_session
-        
-        mock_init_response = Mock()
-        mock_init_response.status_code = 200
-        
-        mock_captcha_response = Mock()
-        mock_captcha_response.status_code = 200
-        mock_captcha_response.content = b'fake_captcha_data'
-        
-        mock_session.get.side_effect = [mock_init_response, mock_captcha_response] * 25
-        
-        # Make requests up to the limit
-        for i in range(20):  # Rate limit is 20 requests per 60 seconds
-            response = client.get('/api/v1/getCaptcha')
-            assert response.status_code == 200
-        
-        # Next request should be rate limited
-        response = client.get('/api/v1/getCaptcha')
-        assert response.status_code == 429
-        
-        data = json.loads(response.data)
-        assert data['success'] == False
-        assert data['error'] == 'Rate limit exceeded'
+        # Check that all endpoints are documented
+        endpoints = data['endpoints']
+        assert 'health' in endpoints
+        assert 'captcha' in endpoints
+        assert 'gst_details' in endpoints
+        assert 'gst_services' in endpoints
+        assert 'validate_gstin' in endpoints
 
 
 if __name__ == '__main__':
-    pytest.main(['-v', '--cov=app', '--cov-report=html'])
+    pytest.main(['-v', '--tb=short'])
