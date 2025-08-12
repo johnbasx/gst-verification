@@ -336,3 +336,411 @@
 2025-08-12 13:38:07,585 - gst_api - INFO - GST services details retrieved successfully for GSTIN: 24AAACC1206D1ZM
 2025-08-12 13:38:07,587 - gst_api - INFO - Request completed: POST /gst-services - 200 - 0.311s
 2025-08-12 13:38:07,587 - werkzeug - INFO - 127.0.0.1 - - [12/Aug/2025 13:38:07] "POST /gst-services HTTP/1.1" 200 -
+2025-08-12 13:47:20,057 - gst_api - INFO - GST Verification API initialized in unknown mode
+2025-08-12 13:47:20,058 - gst_api - INFO - GST Verification API initialized successfully
+2025-08-12 13:47:20,058 - gst_api - INFO - Starting GST Verification API on port 5001 (debug=False)
+2025-08-12 13:47:20,105 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.29.173:5001
+2025-08-12 13:47:20,106 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-08-12 13:47:26,548 - gst_api - INFO - Request started: GET /
+2025-08-12 13:47:26,549 - gst_api - INFO - Request completed: GET / - 200 - 0.001s
+2025-08-12 13:47:26,551 - werkzeug - INFO - 127.0.0.1 - - [12/Aug/2025 13:47:26] "GET /?ide_webview_request_time=1754986646442 HTTP/1.1" 200 -
+2025-08-12 13:47:39,627 - gst_api - INFO - Request started: GET /
+2025-08-12 13:47:39,631 - gst_api - INFO - Request completed: GET / - 200 - 0.004s
+2025-08-12 13:47:39,631 - werkzeug - INFO - 127.0.0.1 - - [12/Aug/2025 13:47:39] "GET / HTTP/1.1" 200 -
+2025-08-12 13:47:49,681 - gst_api - INFO - Request started: GET /captcha - Get captcha image (requires session)
+2025-08-12 13:47:49,683 - gst_api - WARNING - Not found: /captcha - Get captcha image (requires session)
+2025-08-12 13:47:49,684 - gst_api - INFO - Request completed: GET /captcha - Get captcha image (requires session) - 404 - 0.003s
+2025-08-12 13:47:49,685 - werkzeug - INFO - 127.0.0.1 - - [12/Aug/2025 13:47:49] "[33mGET /captcha%20-%20Get%20captcha%20image%20(requires%20session) HTTP/1.1[0m" 404 -
+2025-08-12 13:47:53,779 - gst_api - INFO - Request started: GET /captcha
+2025-08-12 13:47:53,781 - gst_api - INFO - New session created: 1c6c40b2-6a19-473a-a894-658d9b6bc477
+2025-08-12 13:47:54,089 - gst_api - INFO - Captcha retrieved successfully for session: 1c6c40b2-6a19-473a-a894-658d9b6bc477
+2025-08-12 13:47:54,089 - gst_api - INFO - Request completed: GET /captcha - 200 - 0.311s
+2025-08-12 13:47:54,089 - werkzeug - INFO - 127.0.0.1 - - [12/Aug/2025 13:47:54] "GET /captcha HTTP/1.1" 200 -
+2025-08-12 13:48:13,012 - gst_api - INFO - Request started: GET /api/v1/docs/
+2025-08-12 13:48:13,053 - gst_api - INFO - Request completed: GET /api/v1/docs/ - 200 - 0.041s
+2025-08-12 13:48:13,056 - werkzeug - INFO - 127.0.0.1 - - [12/Aug/2025 13:48:13] "GET /api/v1/docs/ HTTP/1.1" 200 -
+2025-08-12 13:48:13,145 - gst_api - INFO - Request started: GET /swaggerui/droid-sans.css
+2025-08-12 13:48:13,149 - gst_api - INFO - Request started: GET /swaggerui/swagger-ui.css
+2025-08-12 13:48:13,151 - gst_api - INFO - Request started: GET /swaggerui/swagger-ui-bundle.js
+2025-08-12 13:48:13,156 - gst_api - INFO - Request started: GET /swaggerui/swagger-ui-standalone-preset.js
+2025-08-12 13:48:13,208 - app - ERROR - Exception on /swaggerui/swagger-ui.css [GET]
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1487, in full_dispatch_request
+    return self.finalize_request(rv)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1508, in finalize_request
+    response = self.process_response(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2002, in process_response
+    response = self.ensure_sync(func)(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/app.py", line 155, in after_request
+    'response_size': len(response.get_data())
+                         ~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 283, in get_data
+    self._ensure_sequence()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 331, in _ensure_sequence
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2025-08-12 13:48:13,219 - app - ERROR - Exception on /swaggerui/droid-sans.css [GET]
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1487, in full_dispatch_request
+    return self.finalize_request(rv)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1508, in finalize_request
+    response = self.process_response(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2002, in process_response
+    response = self.ensure_sync(func)(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/app.py", line 155, in after_request
+    'response_size': len(response.get_data())
+                         ~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 283, in get_data
+    self._ensure_sequence()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 331, in _ensure_sequence
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2025-08-12 13:48:13,238 - app - ERROR - Exception on /swaggerui/swagger-ui-bundle.js [GET]
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1487, in full_dispatch_request
+    return self.finalize_request(rv)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1508, in finalize_request
+    response = self.process_response(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2002, in process_response
+    response = self.ensure_sync(func)(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/app.py", line 155, in after_request
+    'response_size': len(response.get_data())
+                         ~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 283, in get_data
+    self._ensure_sequence()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 331, in _ensure_sequence
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2025-08-12 13:48:13,239 - app - ERROR - Exception on /swaggerui/swagger-ui-standalone-preset.js [GET]
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1487, in full_dispatch_request
+    return self.finalize_request(rv)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1508, in finalize_request
+    response = self.process_response(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2002, in process_response
+    response = self.ensure_sync(func)(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/app.py", line 155, in after_request
+    'response_size': len(response.get_data())
+                         ~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 283, in get_data
+    self._ensure_sequence()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 331, in _ensure_sequence
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2025-08-12 13:48:13,257 - gst_api - ERROR - Internal server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1487, in full_dispatch_request
+    return self.finalize_request(rv)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1508, in finalize_request
+    response = self.process_response(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2002, in process_response
+    response = self.ensure_sync(func)(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/app.py", line 155, in after_request
+    'response_size': len(response.get_data())
+                         ~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 283, in get_data
+    self._ensure_sequence()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 331, in _ensure_sequence
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2025-08-12 13:48:13,268 - gst_api - ERROR - Internal server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1487, in full_dispatch_request
+    return self.finalize_request(rv)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1508, in finalize_request
+    response = self.process_response(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2002, in process_response
+    response = self.ensure_sync(func)(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/app.py", line 155, in after_request
+    'response_size': len(response.get_data())
+                         ~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 283, in get_data
+    self._ensure_sequence()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 331, in _ensure_sequence
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2025-08-12 13:48:13,283 - gst_api - ERROR - Internal server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1487, in full_dispatch_request
+    return self.finalize_request(rv)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1508, in finalize_request
+    response = self.process_response(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2002, in process_response
+    response = self.ensure_sync(func)(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/app.py", line 155, in after_request
+    'response_size': len(response.get_data())
+                         ~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 283, in get_data
+    self._ensure_sequence()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 331, in _ensure_sequence
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2025-08-12 13:48:13,295 - gst_api - ERROR - Internal server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1487, in full_dispatch_request
+    return self.finalize_request(rv)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1508, in finalize_request
+    response = self.process_response(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2002, in process_response
+    response = self.ensure_sync(func)(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/app.py", line 155, in after_request
+    'response_size': len(response.get_data())
+                         ~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 283, in get_data
+    self._ensure_sequence()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 331, in _ensure_sequence
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2025-08-12 13:48:13,307 - gst_api - INFO - Request completed: GET /swaggerui/swagger-ui.css - 500 - 0.158s
+2025-08-12 13:48:13,320 - gst_api - INFO - Request completed: GET /swaggerui/droid-sans.css - 500 - 0.175s
+2025-08-12 13:48:13,326 - gst_api - INFO - Request completed: GET /swaggerui/swagger-ui-bundle.js - 500 - 0.175s
+2025-08-12 13:48:13,328 - gst_api - INFO - Request completed: GET /swaggerui/swagger-ui-standalone-preset.js - 500 - 0.172s
+2025-08-12 13:48:13,329 - werkzeug - INFO - 127.0.0.1 - - [12/Aug/2025 13:48:13] "[35m[1mGET /swaggerui/swagger-ui.css HTTP/1.1[0m" 500 -
+2025-08-12 13:48:13,329 - werkzeug - INFO - 127.0.0.1 - - [12/Aug/2025 13:48:13] "[35m[1mGET /swaggerui/droid-sans.css HTTP/1.1[0m" 500 -
+2025-08-12 13:48:13,330 - werkzeug - INFO - 127.0.0.1 - - [12/Aug/2025 13:48:13] "[35m[1mGET /swaggerui/swagger-ui-bundle.js HTTP/1.1[0m" 500 -
+2025-08-12 13:48:13,330 - werkzeug - INFO - 127.0.0.1 - - [12/Aug/2025 13:48:13] "[35m[1mGET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1[0m" 500 -
+2025-08-12 13:48:13,382 - gst_api - INFO - Request started: GET /swaggerui/favicon-32x32.png
+2025-08-12 13:48:13,384 - app - ERROR - Exception on /swaggerui/favicon-32x32.png [GET]
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1487, in full_dispatch_request
+    return self.finalize_request(rv)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1508, in finalize_request
+    response = self.process_response(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2002, in process_response
+    response = self.ensure_sync(func)(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/app.py", line 155, in after_request
+    'response_size': len(response.get_data())
+                         ~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 283, in get_data
+    self._ensure_sequence()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 331, in _ensure_sequence
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2025-08-12 13:48:13,386 - gst_api - ERROR - Internal server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1487, in full_dispatch_request
+    return self.finalize_request(rv)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1508, in finalize_request
+    response = self.process_response(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2002, in process_response
+    response = self.ensure_sync(func)(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/app.py", line 155, in after_request
+    'response_size': len(response.get_data())
+                         ~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 283, in get_data
+    self._ensure_sequence()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 331, in _ensure_sequence
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2025-08-12 13:48:13,389 - gst_api - INFO - Request completed: GET /swaggerui/favicon-32x32.png - 500 - 0.007s
+2025-08-12 13:48:13,390 - werkzeug - INFO - 127.0.0.1 - - [12/Aug/2025 13:48:13] "[35m[1mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 500 -
+2025-08-12 13:48:13,437 - gst_api - INFO - Request started: GET /swaggerui/favicon-16x16.png
+2025-08-12 13:48:13,438 - app - ERROR - Exception on /swaggerui/favicon-16x16.png [GET]
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1487, in full_dispatch_request
+    return self.finalize_request(rv)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1508, in finalize_request
+    response = self.process_response(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2002, in process_response
+    response = self.ensure_sync(func)(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/app.py", line 155, in after_request
+    'response_size': len(response.get_data())
+                         ~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 283, in get_data
+    self._ensure_sequence()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 331, in _ensure_sequence
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2025-08-12 13:48:13,440 - gst_api - ERROR - Internal server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1487, in full_dispatch_request
+    return self.finalize_request(rv)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1508, in finalize_request
+    response = self.process_response(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2002, in process_response
+    response = self.ensure_sync(func)(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/app.py", line 155, in after_request
+    'response_size': len(response.get_data())
+                         ~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 283, in get_data
+    self._ensure_sequence()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 331, in _ensure_sequence
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2025-08-12 13:48:13,442 - gst_api - INFO - Request completed: GET /swaggerui/favicon-16x16.png - 500 - 0.005s
+2025-08-12 13:48:13,443 - werkzeug - INFO - 127.0.0.1 - - [12/Aug/2025 13:48:13] "[35m[1mGET /swaggerui/favicon-16x16.png HTTP/1.1[0m" 500 -
+2025-08-12 13:48:13,555 - gst_api - INFO - Request started: GET /swaggerui/favicon-32x32.png
+2025-08-12 13:48:13,556 - app - ERROR - Exception on /swaggerui/favicon-32x32.png [GET]
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1487, in full_dispatch_request
+    return self.finalize_request(rv)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1508, in finalize_request
+    response = self.process_response(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2002, in process_response
+    response = self.ensure_sync(func)(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/app.py", line 155, in after_request
+    'response_size': len(response.get_data())
+                         ~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 283, in get_data
+    self._ensure_sequence()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 331, in _ensure_sequence
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2025-08-12 13:48:13,557 - gst_api - ERROR - Internal server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1487, in full_dispatch_request
+    return self.finalize_request(rv)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1508, in finalize_request
+    response = self.process_response(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2002, in process_response
+    response = self.ensure_sync(func)(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/app.py", line 155, in after_request
+    'response_size': len(response.get_data())
+                         ~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 283, in get_data
+    self._ensure_sequence()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 331, in _ensure_sequence
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2025-08-12 13:48:13,560 - gst_api - INFO - Request completed: GET /swaggerui/favicon-32x32.png - 500 - 0.005s
+2025-08-12 13:48:13,560 - werkzeug - INFO - 127.0.0.1 - - [12/Aug/2025 13:48:13] "[35m[1mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 500 -
+2025-08-12 13:48:13,576 - gst_api - INFO - Request started: GET /swaggerui/favicon-16x16.png
+2025-08-12 13:48:13,577 - app - ERROR - Exception on /swaggerui/favicon-16x16.png [GET]
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1487, in full_dispatch_request
+    return self.finalize_request(rv)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1508, in finalize_request
+    response = self.process_response(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2002, in process_response
+    response = self.ensure_sync(func)(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/app.py", line 155, in after_request
+    'response_size': len(response.get_data())
+                         ~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 283, in get_data
+    self._ensure_sequence()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 331, in _ensure_sequence
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2025-08-12 13:48:13,578 - gst_api - ERROR - Internal server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+Traceback (most recent call last):
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1487, in full_dispatch_request
+    return self.finalize_request(rv)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 1508, in finalize_request
+    response = self.process_response(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/flask/app.py", line 2002, in process_response
+    response = self.ensure_sync(func)(response)
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/app.py", line 155, in after_request
+    'response_size': len(response.get_data())
+                         ~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 283, in get_data
+    self._ensure_sequence()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/user/Documents/Development/open-source-tools/GST-Verification-API/venv/lib/python3.13/site-packages/werkzeug/wrappers/response.py", line 331, in _ensure_sequence
+    raise RuntimeError(
+    ...<2 lines>...
+    )
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2025-08-12 13:48:13,580 - gst_api - INFO - Request completed: GET /swaggerui/favicon-16x16.png - 500 - 0.004s
+2025-08-12 13:48:13,581 - werkzeug - INFO - 127.0.0.1 - - [12/Aug/2025 13:48:13] "[35m[1mGET /swaggerui/favicon-16x16.png HTTP/1.1[0m" 500 -
+2025-08-12 13:48:21,760 - gst_api - INFO - Request started: GET /
+2025-08-12 13:48:21,761 - gst_api - INFO - Request completed: GET / - 200 - 0.001s
+2025-08-12 13:48:21,761 - werkzeug - INFO - 127.0.0.1 - - [12/Aug/2025 13:48:21] "GET / HTTP/1.1" 200 -
+2025-08-12 13:48:55,079 - gst_api - INFO - Request started: GET /
+2025-08-12 13:48:55,080 - gst_api - INFO - Request completed: GET / - 200 - 0.001s
+2025-08-12 13:48:55,080 - werkzeug - INFO - 127.0.0.1 - - [12/Aug/2025 13:48:55] "GET / HTTP/1.1" 200 -

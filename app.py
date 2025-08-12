@@ -36,6 +36,7 @@ from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 
 from config import get_config, validate_config
+from swagger import create_swagger_api
 
 # Global variables for components
 app = None
@@ -103,6 +104,9 @@ def create_app(config_name: Optional[str] = None) -> Flask:
     
     # Register routes
     register_routes(app)
+    
+    # Add Swagger API documentation
+    create_swagger_api(app)
     
     # Setup middleware
     setup_middleware(app)
@@ -342,18 +346,37 @@ def register_routes(app: Flask):
     
     @app.route('/', methods=['GET'])
     def root():
-        """Root endpoint providing API information."""
+        """Root endpoint providing API information and documentation links."""
         return jsonify({
             'success': True,
             'message': 'GST Verification API',
             'version': app.config.get('VERSION', '1.0.0'),
-            'description': 'API for GST verification and validation services',
+            'description': 'Professional API for GST verification and validation services using official GST portal endpoints',
+            'documentation': {
+                'swagger_ui': '/api/v1/docs/',
+                'openapi_spec': '/api/v1/swagger.json',
+                'description': 'Interactive API documentation with request/response examples and testing capabilities'
+            },
             'endpoints': {
                 'health': '/health - Health check endpoint',
-                'captcha': '/captcha - Get captcha image',
+                'captcha': '/captcha - Get captcha image (requires session)',
                 'gst_details': '/gst-details - Get GST details using GSTIN and captcha',
                 'gst_services': '/gst-services - Get GST services/goods details for a GSTIN',
                 'validate_gstin': '/validate-gstin - Validate GSTIN format'
+            },
+            'features': [
+                'Official GST Portal Integration',
+                'Captcha Handling',
+                'Session Management',
+                'Rate Limiting',
+                'Comprehensive Error Handling',
+                'OpenAPI/Swagger Documentation'
+            ],
+            'getting_started': {
+                'step_1': 'Visit /api/v1/docs/ for interactive API documentation',
+                'step_2': 'Get captcha from /captcha endpoint',
+                'step_3': 'Use session_id and captcha to fetch GST details',
+                'step_4': 'Validate GSTIN format using /validate-gstin endpoint'
             },
             'timestamp': datetime.now().isoformat(),
             'request_id': getattr(g, 'request_id', 'unknown')
